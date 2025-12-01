@@ -1,0 +1,1146 @@
+            /* TOP */
+            html {
+                scroll-behavior: smooth;
+                font-family: Inter, sans-serif;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #ffffff;
+                border-radius: 1rem;
+                width: 100%;
+                padding-top: 0.8rem;
+                padding-bottom: 0.8rem;
+            }
+
+            .nombre-sitio {
+                font-size: 1.4em;
+                font-weight: 900;
+                color: #285226;
+                flex: 1;
+                justify-content: flex-start;
+                margin-left: 1rem;
+            }
+
+            .menu-principal a {
+                display: inline-block;
+                /* O 'flex' si usas flexbox */
+                padding: 15px;
+                text-decoration: none;
+                color: black;
+            }
+
+            /* El checkbox y el icono de hamburguesa ESTÁN OCULTOS en pantallas grandes */
+            #menu-toggle,
+            .icono-hamburger {
+                display: none;
+            }
+
+            .derecha {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex: 1;
+                justify-content: flex-end;
+            }
+
+            .idioma-form select {
+                cursor: pointer;
+                margin-right: 1rem;
+            }
+
+            /* MAIN */
+            .contenedor-principal {
+                display: flex;
+                width: 100%;
+                max-width: 1250px;
+                margin: 0 auto;
+                margin-top: 0.5rem;
+                align-items: flex-start;
+            }
+
+            .contenido-principal {
+                width: 70%;
+                margin-right: 1rem;
+            }
+
+            aside {
+                width: 30%;
+                margin: 1rem;
+                box-sizing: border-box;
+            }
+
+            .body-registro::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: url("../images/experiencia5.jpg") no-repeat center center / cover;
+                filter: blur(1rem);
+                transform: scale(1.1);
+                z-index: -1;
+            }
+
+            .contenedor-registro {
+                text-align: center;
+                background: #fff;
+                border-radius: 1rem;
+                box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
+                padding: 1.5rem;
+                margin: 6vw auto;
+                max-width: 550px;
+            }
+
+            .contenedor-registro h2 {
+                margin-bottom: 2rem;
+                color: #285226;
+            }
+
+            .formulario-registro {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .formulario-registro button {
+                width: 100%;
+                padding: 0.4rem;
+                box-sizing: border-box;
+            }
+
+            .formulario-registro input {
+                width: 100%;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                box-sizing: border-box;
+            }
+
+            .full-width {
+                grid-column: span 2;
+            }
+
+            .politica-privacidad {
+                font-size: 0.8em;
+                color: #555;
+
+            }
+
+            .banner {
+                position: relative;
+                height: 250px;
+                background-image: url('../images/mochileros.jpg');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .banner-contenido {
+                background: rgba(0, 0, 0, 0.4);
+                padding: 2rem 3.5rem;
+                border-radius: 1.5rem;
+                text-align: center;
+            }
+
+            .carrusel {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                margin: 1.5rem 2rem;
+            }
+
+            .flecha {
+                background: #fff;
+                border-radius: 1rem;
+                box-shadow: 0 0.5rem 0.3rem rgba(0, 0, 0, 0.08);
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .flecha:hover {
+                background: #cdcdcd;
+            }
+
+            .flecha-simbolo {
+                color: rgb(0, 0, 0);
+                font-size: 2rem;
+                display: inline-block;
+                transform: scaleX(0.7);
+            }
+
+            .pack {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                padding: 32px;
+                width: 300px;
+                text-align: center;
+                display: none;
+            }
+
+            .pack.active {
+                display: block;
+            }
+
+            .pack img {
+                width: 100%;
+                border-radius: 8px;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            .precio {
+                display: block;
+                margin: 8px 0;
+                font-weight: bold;
+                color: #285226;
+            }
+
+            .comprar-btn {
+                display: inline-block;
+                background: #285226;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-top: 8px;
+            }
+
+            .comprar-btn:hover {
+                background: #3b7a3b;
+            }
+
+            .galeria-experiencias {
+                margin: 40px 0;
+            }
+
+            .galeria-experiencias h2 {
+                text-align: center;
+                margin-bottom: 24px;
+                color: #285226;
+            }
+
+            .grid-experiencias {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 24px;
+            }
+
+            .tarjeta-experiencia {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                padding: 16px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tarjeta-experiencia img {
+                width: 100%;
+                height: 130px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 12px;
+            }
+
+            .tarjeta-experiencia h3 {
+                margin: 10px 0 16px 0;
+                font-size: 1.1em;
+                color: #285226;
+            }
+
+            .acciones {
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                width: 100%;
+            }
+
+            .ver-mas-btn {
+                background: #285226;
+                color: #fff;
+                padding: 6px 14px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 0.95em;
+                transition: background 0.2s;
+                margin-top: -5px;
+            }
+
+            .ver-mas-btn:hover {
+                background: #3b7a3b;
+            }
+
+            .like-btn {
+                color: #e74c3c;
+                font-size: 1.5em;
+                text-decoration: none;
+                transition: transform 0.2s;
+                line-height: 1;
+            }
+
+            .like-btn:hover {
+                transform: scale(1.2);
+            }
+
+            /* ASIDE */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            .modal-content {
+                background-color: white;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                margin: 10px;
+            }
+
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .formulario form {
+                display: flex;
+                text-align: left;
+                flex-direction: column;
+                font-size: 0.9em;
+                column-gap: 20px
+            }
+
+            .formulario input {
+                margin-bottom: 10px;
+                padding: 8px;
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+
+            .recordar {
+                margin-top: 3px;
+                margin-bottom: 5px;
+                gap: 5px;
+                display: flex;
+            }
+
+            .boton-formulario {
+                text-align: center;
+                margin-top: 5px;
+                padding: 8px;
+                background-color: #285226;
+                color: #ffffff;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background 0.2s;
+                text-decoration: none;
+            }
+
+            .boton-formulario:hover {
+                background: #3b7a3b
+            }
+
+
+            .user-iniciado {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                justify-content: flex-start;
+                margin-top: .5rem;
+            }
+
+            .foto-perfil {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 0 auto 10px auto;
+            }
+
+            .cerrar-sesion {
+                padding: 0.6rem 1rem;
+                min-width: 100px;
+                min-height: 44px;
+                border: 2px solid #222;
+                border-radius: 14px;
+                background: #fff;
+                font-size: 1rem;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .searchbar-experiencias {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .searchbar-experiencias input[type="search"] {
+                width: 100%;
+                padding: 8px;
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+
+            .lista h4 {
+                margin-bottom: 15px;
+            }
+
+            .lista ul {
+                list-style-type: circle;
+                margin-top: 5px;
+                padding-left: 5px;
+
+            }
+
+            .lista ul li {
+                margin-bottom: 3px;
+            }
+
+            .lista a {
+                text-decoration: none;
+                color: #000000;
+                cursor: pointer;
+                font-size: 0.95em;
+                transition: color 0.2s;
+            }
+
+            .lista a:hover {
+                color: #285226;
+                text-decoration: underline;
+            }
+
+            .form-consejo {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                margin-top: .5rem;
+            }
+
+            .form-consejo input,
+            .form-consejo textarea {
+                border: 2px solid #222;
+                border-radius: 8px;
+                padding: .6rem .8rem;
+                font-size: 1rem;
+            }
+
+            .form-consejo textarea {
+                resize: vertical;
+                min-height: 80px;
+            }
+
+            .form-consejo .btn-enviar {
+                border: 2px solid #222;
+                border-radius: 14px;
+                background: #fff;
+                font-size: 1rem;
+                padding: .6rem 1rem;
+                cursor: pointer;
+            }
+
+            .sr-only {
+                position: absolute !important;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 1px, 1px);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            :root {
+                --mc-border: #222;
+                --mc-bg: #fff;
+                --mc-accent: #285226;
+                --mc-focus: #9ad0ff;
+            }
+
+            /* Mini Calendario*/
+            .mini-cal.v2 {
+                background: var(--mc-bg);
+                border: 2px solid var(--mc-border);
+                border-radius: 14px;
+                padding: .75rem;
+                box-shadow: 0 1rem 3rem rgba(0, 0, 0, .06);
+            }
+
+            .mini-cal.v2 .mc-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: .5rem;
+                margin-bottom: .25rem;
+            }
+
+            .mini-cal.v2 .mc-title {
+                margin: 0;
+                font-size: 1.05rem;
+                font-weight: 800;
+                letter-spacing: .2px;
+                color: var(--mc-accent);
+            }
+
+
+            .mini-cal.v2 .mc-nav {
+                border: 2px solid var(--mc-border);
+                background: var(--mc-bg);
+                border-radius: 8px;
+                width: 32px;
+                height: 32px;
+                display: inline-grid;
+                place-items: center;
+                cursor: pointer;
+                transition: transform .08s ease, background-color .15s ease;
+            }
+
+            .mini-cal.v2 .mc-nav:hover {
+                background: #f3f3f3;
+            }
+
+            .mini-cal.v2 .mc-nav:active {
+                transform: translateY(1px);
+            }
+
+            .mini-cal.v2 .mc-nav:focus-visible {
+                outline: 3px solid var(--mc-focus);
+                outline-offset: 2px;
+            }
+
+            .mini-cal.v2 .mc-nav[disabled] {
+                opacity: .6;
+                cursor: not-allowed;
+            }
+
+
+            .mini-cal.v2 .mc {
+                width: 100%;
+                border-collapse: separate;
+                table-layout: fixed;
+                margin-top: .25rem;
+                margin-left: auto;
+                margin-right: auto;
+                border-spacing: .25rem;
+            }
+
+            .mini-cal.v2 .mc thead th {
+                text-align: center;
+                font-size: .9rem;
+                font-weight: 700;
+                color: #000;
+                padding: .15rem 0;
+            }
+
+            .mini-cal.v2 .mc td.is-empty {
+                opacity: .25;
+            }
+
+
+            .mini-cal.v2 .mc td>button {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                border: 2px solid var(--mc-border);
+                border-radius: 10px;
+                background: var(--mc-bg);
+                font: inherit;
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+                transition: background-color .15s ease, border-color .15s ease, transform .08s ease;
+                margin: 0 auto;
+            }
+
+            .mini-cal.v2 .mc td>button:hover {
+                background: #f5f5f5;
+            }
+
+            .mini-cal.v2 .mc td>button:active {
+                transform: translateY(1px);
+            }
+
+            .mini-cal.v2 .mc td>button:focus-visible {
+                outline: 3px solid var(--mc-focus);
+                outline-offset: 2px;
+            }
+
+            .mini-cal.v2 .mc td>button.is-today {
+                box-shadow: 0 0 0 3px var(--mc-focus) inset;
+            }
+
+            .mini-cal.v2 .mc td>button.has-event {
+                position: relative;
+            }
+
+            .mini-cal.v2 .mc td>button.has-event::after {
+                content: "";
+                position: absolute;
+                bottom: 6px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--mc-accent);
+            }
+
+            .mini-cal.v2 .mc-legend {
+                display: inline-flex;
+                align-items: center;
+                gap: .4rem;
+                font-size: .9rem;
+                margin: .5rem 0 0;
+            }
+
+            .mini-cal.v2 .mc-legend .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--mc-accent);
+                display: inline-block;
+            }
+
+            table.mc button.has-event {
+                position: relative;
+            }
+
+
+            table.mc button.has-event::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 6px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #222;
+            }
+
+            .btn-deshabilitado {
+                background-color: #cccccc;
+                color: #666666;
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            .compra-experiencia {
+                display: grid;
+                grid-template-columns: 40% 60%;
+                gap: 24px;
+                padding: 24px;
+                margin: 0 auto;
+                max-width: 1200px;
+            }
+
+            .col-izq {
+                display: grid;
+                gap: 24px;
+            }
+
+            .pack-card,
+            .pack-desc,
+            .panel {
+                background: #fff;
+                border: 2px solid #000;
+                border-radius: 8px;
+                padding: 16px;
+            }
+
+            .pack-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-compra {
+                display: grid;
+                gap: 12px;
+            }
+
+            .field {
+                display: grid;
+                gap: 6px;
+            }
+
+            input,
+            select {
+                border: 2px solid #000;
+                border-radius: 6px;
+                padding: 8px;
+                font-size: 1em;
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .actions {
+                display: flex;
+                margin-top: 12px;
+                gap: 12px;
+                justify-content: center;
+            }
+
+            .btn {
+                border: 2px solid #000;
+                border-radius: 6px;
+                padding: 8px 16px;
+                background: #fff;
+                cursor: pointer;
+            }
+
+            .btn-primary {
+                background: #285226;
+                color: #fff;
+            }
+
+            /*Footer*/
+            footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #ffffff;
+                width: 100%;
+                border-radius: 1rem;
+                padding-top: 1.2rem;
+                padding-bottom: 1.2rem;
+            }
+
+            .footer-copy,
+            .footer-redes,
+            .footer-newsletter {
+                display: flex;
+                align-items: center;
+            }
+
+            .footer-copy {
+                justify-content: flex-start;
+                margin-left: 1rem;
+                color: #000000;
+                font-size: 0.75em;
+                margin-right: 1rem;
+            }
+
+            .footer-enlaces {
+                gap: 8px;
+                flex: 1;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .footer-enlaces a {
+                text-decoration: none;
+                color: #000000;
+                cursor: pointer;
+                font-size: 0.85em;
+                margin: 0 6px;
+                transition: color 0.2s;
+            }
+
+            .footer-enlaces a:hover {
+                text-decoration: underline;
+                color: #285226;
+            }
+
+            .footer-redes {
+                gap: 12px;
+                margin: 0 10px;
+            }
+
+            .footer-redes a {
+                text-decoration: none;
+                color: #000000;
+                cursor: pointer;
+                font-size: 1.2em;
+                transition: color 0.2s;
+            }
+
+            .footer-redes img {
+                width: 20px;
+                height: 18px;
+                display: block;
+                opacity: 1;
+                filter: none;
+                margin-left: 1px;
+            }
+
+            .footer-newsletter {
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .footer-newsletter .suscribete {
+                margin: 0;
+                white-space: nowrap;
+                font-size: 0.85em;
+                margin-right: 0.3rem;
+            }
+
+            .footer-newsletter input[type="email"] {
+                padding: 4px 10px;
+                border-radius: 8px;
+                border-color: #333;
+                color: #e5e7eb;
+            }
+
+            .footer-newsletter button {
+                padding: 7px 10px;
+                border: 0;
+                border-radius: 8px;
+                background: #285226;
+                color: #fff;
+                cursor: pointer;
+                margin-left: 0.2rem;
+                margin-right: 0.8rem;
+            }
+
+            .footer-newsletter button:hover {
+                background: #3b7a3b;
+            }
+
+
+
+            @media (max-width: 992px) {
+
+                /* --- INICIO DE LA LÓGICA DEL HEADER --- */
+                /* Aquí activamos el layout "móvil" del header */
+
+                header {
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    position: relative;
+                    /* Importante para el menú desplegable */
+                }
+
+                /* Ocultamos el menú de texto de escritorio */
+                .menu-principal {
+                    display: none;
+                }
+
+                /* Hacemos visible la sección derecha (logo/select) */
+                .derecha {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                /* Hacemos visible el icono de hamburguesa */
+                .icono-hamburger {
+                    display: block;
+                    cursor: pointer;
+                    padding: 15px;
+                    margin-left: auto;
+                    /* Empuja el icono y .derecha al final */
+                }
+
+                .icono-hamburger .raya {
+                    width: 30px;
+                    height: 3px;
+                    background-color: #333;
+                    margin: 6px 0;
+                    transition: 0.3s;
+                }
+
+                /* Permitimos que el título se parta si es largo */
+                .nombre-sitio {
+                    white-space: normal;
+                }
+
+                /* Definición del menú desplegable */
+                .menu-principal {
+                    /* display: none; ya está arriba */
+                    width: 100%;
+                    position: absolute;
+                    top: 100%;
+                    /* Se ancla debajo del header */
+                    left: 0;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+                    /* Se asegura de que esté por encima */
+                }
+
+                .menu-principal a {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    border-bottom: 1px solid #f0f0f0;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+
+                /* La magia que muestra el menú */
+                #menu-toggle:checked~.menu-principal {
+                    display: block;
+                }
+
+                /* --- FIN DE LA LÓGICA DEL HEADER --- */
+
+
+                /* --- TUS REGLAS DE LAYOUT ORIGINALES PARA 992px --- */
+                .compra-experiencia {
+                    grid-template-columns: 100%;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .contenedor-principal {
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .contenido-principal {
+                    margin-top: auto;
+                    width: 100%;
+                }
+
+                aside {
+                    width: 100%;
+                    margin-top: 2rem;
+                    margin-left: 0;
+                }
+
+                .mini-cal.v2 {
+                    padding: .6rem;
+                }
+
+                .mini-cal.v2 .mc {
+                    border-spacing: .25rem;
+                }
+
+                .mini-cal.v2 .mc thead th {
+                    font-size: .85rem;
+                }
+
+                                /* Footer */
+                footer {
+                    width: 100%;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 1rem;
+                    padding: 1.2rem 0.5rem;
+                    box-sizing: border-box;
+                }
+
+                .footer-enlaces {
+                    align-items: center;
+                }
+
+                .footer-enlaces a {
+                    font-size: 0.9em;
+                    margin: 4px 0;
+                }
+
+                .footer-newsletter .suscribete {
+                    font-size: 0.8em;
+                }
+
+                .footer-newsletter input[type="email"],
+                .footer-newsletter button {
+                    width: 100%;
+                    margin: 5px 0;
+                }
+            }
+
+            @media (max-width: 480px) {
+
+                /* El layout del HEADER ya está heredado de 992px. */
+                /* Aquí solo van los AJUSTES FINOS para pantallas pequeñas. */
+
+                /* 3. Ajustamos el tamaño del logo y select para que quepan */
+                header img {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                header select {
+                    max-width: 3rem;
+                    width: auto;
+                    font-size: 0.8em;
+                    /* Reducimos la fuente para que quepa */
+                    padding: 4px;
+                }
+
+                .nombre-sitio {
+                    font-size: 1.1em;
+                    /* white-space: normal; ya está heredado de 992px */
+                }
+
+                /* --- TUS REGLAS DE LAYOUT ORIGINALES PARA 480px --- */
+
+                /* Main */
+                .banner {
+                    padding: 2rem;
+                    height: 200px;
+                    justify-content: center;
+                }
+
+                .banner-contenido {
+                    padding: 1rem 2rem;
+                    font-size: 80%;
+                }
+
+                .carrusel {
+                    flex-direction: row;
+                    gap: 1rem;
+                }
+
+                .flecha {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .lista li {
+                    font-size: 0.9em;
+                    margin-left: 1rem;
+                }
+
+                /* Formulario */
+                .formulario-registro {
+                    grid-template-columns: 1fr;
+                }
+
+                .formulario-registro button {
+                    width: 100%;
+                }
+
+                .galeria-experiencias {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .grid-experiencias {
+                    grid-template-columns: 1fr;
+                    margin-left: 2.5rem;
+                }
+
+                .tarjeta-experiencia {
+                    width: 80%;
+                }
+
+                .contenedor-registro {
+                    width: 80%;
+                }
+
+                .contenedor-registro h2 {
+                    font-size: 1.2em;
+                }
+
+                .panel {
+                    margin: 0 auto;
+                    padding: 1rem;
+                    align-items: center;
+                    box-sizing: border-box;
+                }
+
+                .compra-experiencia {
+                    /* Estas reglas ya están en 992px, pero se pueden refinar */
+                    font-size: 0.9em;
+                }
+
+                .col-izq {
+                    grid-template-columns: 100%;
+                }
+
+                .pack {
+                    width: 70%;
+                    margin: 0 auto;
+                    font-size: 0.8em;
+                }
+
+                .pack-card,
+                .pack-desc,
+                .panel {
+                    padding: 1rem;
+                    border-radius: 10px;
+                }
+
+                .form-compra .input,
+                .form-compra .select,
+                .form-compra textarea {
+                    width: 100%;
+                    display: block;
+                }
+
+                .form-compra input {
+                    box-sizing: border-box;
+                }
+
+                .mini-cal.v2 {
+                    padding: .5rem;
+                }
+
+                .mini-cal.v2 .mc-title {
+                    font-size: 1rem;
+                }
+
+                .mini-cal.v2 .mc {
+                    border-spacing: .12rem;
+                }
+
+                .mini-cal.v2 .mc td>button {
+                    display: grid;
+                    place-items: center;
+                    padding: 0;
+                    line-height: 1;
+                    margin: 0 auto;
+                    width: 100%;
+                    aspect-ratio: 1 / 1;
+                }
+
+                .mini-cal.v2 .mc td,
+                .mini-cal.v2 .mc th {
+                    text-align: center;
+                    vertical-align: middle;
+                    padding: 0;
+                }
+
+                .mini-cal.v2 .mc-head {
+                    gap: .25rem;
+                }
+
+            }

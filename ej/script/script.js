@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const fields = document.querySelectorAll(".field");
     const popups = document.querySelectorAll(".popup");
 
+    //DETECTA QUE CONTINENTE LE DAS CLICK
+    window.pick = (continent) => {
+        alert("Seleccionaste: " + continent);
+    };
+
+
     fields.forEach(field => {
         field.addEventListener("click", e => {
             popups.forEach(p => p.style.display = "none");
@@ -38,6 +44,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    //Para que las fechas se pongan bien
+
+    document.querySelectorAll(".popup input[type='date']").forEach(dateInput => {
+        dateInput.addEventListener("change", e => {
+            const popup = dateInput.closest(".popup");
+            const field = [...fields].find(f => f.dataset.popup === popup.id);
+            
+            // Ponemos la fecha seleccionada dentro del campo visible
+            field.querySelector("input").value = dateInput.value;
+
+            popup.style.display = "none";
+        });
+    });
+
+
+    //Para poder leer los paramétros
+
+
+    const botonBuscar = document.querySelector(".buscar");
+
+    if(botonBuscar){
+        botonBuscar.addEventListener("click", () => {
+        const origen  = document.querySelector("[data-popup='origen-popup'] input").value;
+        const destino = document.querySelector("[data-popup='destino-popup'] input").value;
+        const ida     = document.querySelector("[data-popup='ida-popup'] input").value;
+        const vuelta  = document.querySelector("[data-popup='vuelta-popup'] input").value;
+        const tipo    = document.querySelector("[data-popup='tipo-popup'] input").value;
+
+        console.log({ origen, destino, ida, vuelta, tipo });
+    });
+
+
+    }
+
+   
+
+ 
+ 
+    
 
 
 

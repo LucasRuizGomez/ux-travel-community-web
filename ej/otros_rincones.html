@@ -22,7 +22,7 @@
             
             <nav class="menu-principal">
                 <a href="home.html">Inicio</a>
-                <a href="#">Comunidad</a>
+                <a href="comunidad.html">Comunidad</a>
                 <a href="otros_rincones.html">Otros Rincones</a>
             </nav>
             
@@ -105,15 +105,26 @@
 
         <hr class="divider">
 
-        <!-- Nuevo bloque entero -->
+        <!-- HAY QUE ARREGLAR PARA QUE NO SALGAN TAN SEPARADOS-->
 
-        <section class="banner">
-            <div class="banner-contenido">
+        <section class="banner-paises">
+            <div class="banner-contenido-paises">
                 <h1>Todos Nuestros Destinos</h1>
                 <p>Elige continente</p>
             </div>
         </section>
 
+
+        <div class="worldmap">
+            <img src="images/north_america.svg" class="continent" id="na" onclick="pick('Norteamérica')">
+            <img src="images/south_america.svg" class="continent" id="sa" onclick="pick('Sudamérica')">
+            <img src="images/europe.svg" class="continent" id="eu" onclick="pick('Europa')">
+            <img src="images/africa.svg" class="continent" id="af" onclick="pick('África')">
+            <img src="images/asia.svg" class="continent" id="as" onclick="pick('Asia')">
+            <img src="images/oceania.svg" class="continent" id="oc" onclick="pick('Oceanía')">
+        </div>
+
+                
 
 
 
@@ -161,5 +172,9 @@
         </div>
 
         <script src="script/script.js"></script>
+
+        
+
+
     </body>
 </html>

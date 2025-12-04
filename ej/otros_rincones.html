@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mochileros por el mundo</title>
+        <link rel="icon" type="image/x-icon" href="images/mochilachati.png">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter">
+    </head>
+    <body>
+        <header>
+            <div class="nombre-sitio">Mochileros por el mundo</div>
+            <input type="checkbox" id="menu-toggle">
+    
+            <label for="menu-toggle" class="icono-hamburger">
+                <div class="raya"></div>
+                <div class="raya"></div>
+                <div class="raya"></div>
+            </label>
+            
+            <nav class="menu-principal">
+                <a href="home.html">Inicio</a>
+                <a href="#">Comunidad</a>
+                <a href="otros_rincones.html">Otros Rincones</a>
+            </nav>
+            
+            <div class="derecha">
+                <img src="images/mochilachati.png" alt="Logo" width="60"
+                    height="60">
+                <form class="idioma-form">
+                    <label for="idioma">Idioma</label>
+                    <select id="idioma" name="idioma">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </form>
+            </div>
+        </header>
+
+
+
+
+
+
+        <!-- CAMBIAR FOTO DONDO -->
+        <section class="banner">
+            <div class="banner-contenido">
+                <h1>Otros Rincones</h1>
+                <h1>¿Búscas algo más único?</h1>
+                <p>Descubre lugares únicos recomendados por otros viajeros</p>
+            </div>
+        </section>
+
+
+        <section class="destinos">
+            <div class="destinos-titulo">
+                <h1>Destinos recomendados</h1>
+                <p>Los más solicitados por nuestros usuarios!</p>
+            </div>
+
+
+            <div class="destino-container">
+                <div class="pais-recomendado" id="japon">
+                    <h1>Kyoto</h1>
+                    <p>Japón</p>
+                    <button>Visitar</button>
+                </div>
+
+                <div class="foto-destino" id="japonfoto"></div>
+            </div>
+            
+
+            <div class="destino-container">
+                <div class="pais-recomendado" id="cuzco">
+                    <h1>Cuzco</h1>
+                    <p>Perú</p>
+                    <button>Visitar</button>
+                </div>
+
+                <div class="foto-destino" id="cuzcofoto"></div>
+
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+        <hr class="divider">
+
+        <!-- Nuevo bloque entero -->
+
+        <section class="banner">
+            <div class="banner-contenido">
+                <h1>Todos Nuestros Destinos</h1>
+                <p>Elige continente</p>
+            </div>
+        </section>
+
+
+
+
+
+
+        
+        <footer>
+            <div class="footer-copy">
+                &copy; 2025 Mochileros por el mundo. Todos los derechos
+                reservados.
+            </div>
+            <div class="footer-enlaces">
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-redes">
+                <a href="#" title="Instagram" aria-label="Instagram">
+                    <img src="images/instagram.svg" alt="Instagram"
+                        class="icono-red">
+                </a>
+                <a href="#" title="TikTok" aria-label="TikTok">
+                    <img src="images/tiktok.svg" alt="Tiktok" class="icono-red">
+                </a>
+                <a href="#" title="YouTube" aria-label="YouTube">
+                    <img src="images/youtube.svg" alt="Youtube"
+                        class="icono-red">
+                </a>
+            </div>
+            <form class="footer-newsletter" action="#" method="post">
+                <label for="newsletter-email" class="suscribete">Suscríbete a la
+                    newsletter</label>
+                <input type="email" id="newsletter-email" name="email"
+                    placeholder="Tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </footer>
+        <div id="errorModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <p></p>
+                <!-- Este texto será reemplazado -->
+            </div>
+        </div>
+
+        <script src="script/script.js"></script>
+    </body>
+</html>

@@ -30,6 +30,12 @@
                 padding: 15px;
                 text-decoration: none;
                 color: black;
+                transition: background-color 0.8s ease 0.1s;
+
+            }
+
+            .menu-principal a:hover {
+                background-color: #e0e0e0;
             }
 
             /* El checkbox y el icono de hamburguesa ESTÁN OCULTOS en pantallas grandes */
@@ -136,6 +142,12 @@
                 align-items: center;
                 justify-content: center;
                 color: white;
+                border-radius: 10px;
+                margin-bottom: 40px;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto; 
+                
             }
 
             .banner-contenido {
@@ -143,7 +155,30 @@
                 padding: 2rem 3.5rem;
                 border-radius: 1.5rem;
                 text-align: center;
+                
             }
+
+
+            .banner h1{
+
+                text-align: center;
+                color: #ffffff;
+
+
+            }
+
+
+            .banner p{
+
+                text-align: center;
+                color: #ffffff;
+
+
+
+            }
+
+
+
 
             .carrusel {
                 display: flex;
@@ -228,6 +263,13 @@
                 text-align: center;
                 margin-bottom: 24px;
                 color: #285226;
+            }
+            
+            .galeria-experiencias h3 {
+                text-align: center;
+                margin-bottom: 18px;
+                color: #28522666;
+                
             }
 
             .grid-experiencias {
@@ -841,6 +883,285 @@
 
 
 
+
+            /* Pongo todo lo nuevo abajo y luego ya lo ordenamos */
+
+            /* Nota: El boton de ver mas use la misma clase pero no me gusta cmo queda */
+
+            .divider {
+                margin: 40px 80px;
+                border: none;
+                border-top: 1px solid rgba(0, 0, 0, 0.15);
+            }
+
+            .nuevas_aventuras h1{
+
+                text-align: center;
+                color: #285226;
+            }
+
+            .nuevas_aventuras h3{
+                text-align: center;
+                margin-bottom: 24px;
+                color: #285226;
+            }
+
+            
+            .nuevas_aventuras {
+                text-align: center;
+                padding: 40px;
+                background-image: url("../images/beach.jpg");
+                background-size: cover;
+                background-position: center;
+                border-radius: 10px;
+                
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto; 
+            }
+
+            .carousel-resenias h2{
+
+                text-align: center;
+                color: #285226;
+            }
+
+
+            .buscador-container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+
+            .search-bar {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                background: white;
+                display: flex;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .field {
+                flex: 1;
+                background: #fff;
+                padding: 10px 15px;
+                border-radius: 10px;
+                border: 1px solid #ddd;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .field label {
+                font-size: 12px;
+                color: gray;
+            }
+
+            .field input {
+                border: none;
+                width: 100%;
+                font-size: 15px;
+            }
+
+            .buscar {
+                padding: 0 25px;
+                background: #285226;
+                color: white;
+                border: none;
+                border-radius: 12px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .popup {
+                display: none;
+                position: absolute;
+                width: 300px;
+                background: white;
+                padding: 15px;
+                border-radius: 12px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+                z-index: 20;
+            }
+
+            .option {
+                padding: 10px;
+                border-bottom: 1px solid #eee;
+                cursor: pointer;
+            }
+
+            .option:hover {
+                background: #f1f1f1;
+            }
+
+
+            .destinos{
+
+                width: 100%;
+                max-width: 1200px;
+                text-align: center;
+                margin: 0 auto; 
+
+            }
+
+
+            .destinos-titulo h1{
+                text-align: center;
+                color: #285226;
+            }
+
+
+            .destinos-titulo p{
+                text-align: center;
+                color: #285226;
+            }
+
+
+
+
+            #japon{
+
+                text-align: left;
+                color: #285226;
+
+
+            }
+
+            #cuzco{
+
+                text-align: right;
+                color: #285226;
+
+
+
+            }
+
+            /* Los botones no se alinean perfectamente con el texto lol que mal arreglar */
+            .pais-recomendado button{
+
+                border-radius: 8px;
+                color: #ffffffef;
+                background-color: #000000;
+
+
+            }
+
+            #japonfoto {
+                background-image: url("../images/japon.jpeg");
+                height: 240px;
+                border-radius: 12px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            #cuzcofoto {
+                background-image: url("../images/cuzco.jpeg");
+                height: 240px;
+                border-radius: 12px;
+                background-size: cover;
+                background-position: center;
+            }
+
+
+
+
+
+
+
+
+
+            /* 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            */
+
+
             @media (max-width: 992px) {
 
                 /* --- INICIO DE LA LÓGICA DEL HEADER --- */
@@ -1017,6 +1338,7 @@
                     padding: 2rem;
                     height: 200px;
                     justify-content: center;
+                    
                 }
 
                 .banner-contenido {

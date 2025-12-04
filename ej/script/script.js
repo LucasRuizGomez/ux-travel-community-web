@@ -1,6 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM completamente cargado");
 
+
+    const fields = document.querySelectorAll(".field");
+    const popups = document.querySelectorAll(".popup");
+
+    fields.forEach(field => {
+        field.addEventListener("click", e => {
+            popups.forEach(p => p.style.display = "none");
+
+            const popupId = field.dataset.popup;
+            const popup = document.getElementById(popupId);
+
+            const rect = field.getBoundingClientRect();
+            popup.style.left = rect.left + "px";
+            popup.style.top = rect.bottom + 5 + "px";
+
+            popup.style.display = "block";
+        });
+    });
+
+    document.addEventListener("click", e => {
+        if (!e.target.closest(".field") && !e.target.closest(".popup")) {
+            popups.forEach(p => p.style.display = "none");
+        }
+    });
+
+    document.querySelectorAll(".popup .option").forEach(opt => {
+        opt.addEventListener("click", e => {
+            const popup = opt.closest(".popup");
+            const fieldId = popup.id.replace("-popup", "");
+            const field = [...fields].find(f => f.dataset.popup === popup.id);
+            field.querySelector("input").value = opt.textContent;
+
+            popup.style.display = "none";
+        });
+    });
+
+
+
+
+
     // Obtener todos los packs del carrusel
     const packs = document.querySelectorAll('.pack');
     if (packs) {

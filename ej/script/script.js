@@ -617,4 +617,29 @@ document.addEventListener('DOMContentLoaded', function () {
         // Estado inicial del botón al cargar la página
         actualizarEstadoBoton();
     }
+
+    //Usuario logeado en counidad
+
+    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+
+    if (usuarioLogueado) {
+
+        // Nombre
+        const nombreComunidad = document.getElementById('nombre-usuario-comunidad');
+        if (nombreComunidad) nombreComunidad.textContent = usuarioLogueado.nombre;
+
+        // Foto de perfil
+        const fotoComunidad = document.getElementById('foto-perfil-comunidad');
+        if (fotoComunidad) {
+            if (usuarioLogueado.foto && usuarioLogueado.foto !== "sin_imagen") {
+                fotoComunidad.src = usuarioLogueado.foto;
+            } else {
+                fotoComunidad.src = "images/id.png"; // fallback
+            }
+        }
+    }
+
+
+
+
 });

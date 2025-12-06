@@ -146,8 +146,8 @@
                 margin-bottom: 40px;
                 width: 100%;
                 max-width: 1200px;
-                margin: 0 auto; 
-                
+                margin: 0 auto;
+
             }
 
             .banner-contenido {
@@ -155,7 +155,7 @@
                 padding: 2rem 3.5rem;
                 border-radius: 1.5rem;
                 text-align: center;
-                
+
             }
 
 
@@ -264,12 +264,12 @@
                 margin-bottom: 24px;
                 color: #285226;
             }
-            
+
             .galeria-experiencias h3 {
                 text-align: center;
                 margin-bottom: 18px;
                 color: #28522666;
-                
+
             }
 
             .grid-experiencias {
@@ -906,7 +906,7 @@
                 color: #285226;
             }
 
-            
+
             .nuevas_aventuras {
                 text-align: center;
                 padding: 40px;
@@ -914,10 +914,10 @@
                 background-size: cover;
                 background-position: center;
                 border-radius: 10px;
-                
+
                 width: 100%;
                 max-width: 1200px;
-                margin: 0 auto; 
+                margin: 0 auto;
             }
 
             .carousel-resenias h2{
@@ -1003,7 +1003,7 @@
                 width: 100%;
                 max-width: 1200px;
                 text-align: center;
-                margin: 0 auto; 
+                margin: 0 auto;
 
             }
 
@@ -1082,7 +1082,7 @@
                 cursor: pointer;
                 transition: opacity 0.2s ease;
 
-                
+
                 pointer-events: visiblePainted;
             }
 
@@ -1114,8 +1114,8 @@
                 margin-bottom: 40px;
                 width: 100%;
                 max-width: 1200px;
-                margin: 0 auto; 
-                
+                margin: 0 auto;
+
             }
 
             .banner-contenido-paises {
@@ -1124,7 +1124,7 @@
                 border-radius: 1.5rem;
                 text-align: center;
                 width: 100%;
-                
+
             }
 
 
@@ -1146,9 +1146,7 @@
                 padding: 0 20px;
             }
 
-            /* =============================== */
-            /*     COLUMNA IZQUIERDA (PERFIL)  */
-            /* =============================== */
+            /* col-izq-com */
 
             .col-izq-comunidad {
                 position: sticky;
@@ -1174,9 +1172,7 @@
             }
 
 
-            /* =============================== */
-            /*     POSTS DEL CENTRO            */
-            /* =============================== */
+            /* Publicaciones */
 
             .post {
                 background: white;
@@ -1184,6 +1180,8 @@
                 padding: 20px;
                 margin-bottom: 20px;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
             }
 
             .post-header {
@@ -1242,6 +1240,65 @@
 
 
 
+            .post button{
+
+                border-radius: 8px;
+                background-color: white;
+                align-self: flex-end;
+                
+
+            }
+
+
+            .mini-popup {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: white;
+                padding: 12px;
+                border-radius: 10px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+                z-index: 9999;
+            }
+
+            .mini-box {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .mini-box textarea {
+                width: 520px;
+                height: 170px;
+                resize: none;
+                padding: 6px;
+            }
+
+            .mini-box button {
+                padding: 6px;
+                border: none;
+                border-radius: 6px;
+                background: #2b7cff;
+                color: white;
+                cursor: pointer;
+            }
+
+            body.low-data img {
+                display: none !important;
+            }
+
+            /* Quitar TODAS las imágenes de fondo definidas en CSS */
+            body.low-data * {
+                background-image: none !important;
+            }
+
+
+
+
+
+
+            /*
 
 
 
@@ -1253,92 +1310,80 @@
 
 
 
-            /* 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             */
 
 
@@ -1518,7 +1563,7 @@
                     padding: 2rem;
                     height: 200px;
                     justify-content: center;
-                    
+
                 }
 
                 .banner-contenido {

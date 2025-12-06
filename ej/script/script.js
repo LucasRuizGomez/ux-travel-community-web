@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             popup.style.display = "none";
         });
     });
-
+    
 
     //Para que las fechas se pongan bien
 
@@ -637,6 +637,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 fotoComunidad.src = "images/id.png"; // fallback
             }
         }
+    }
+
+
+
+    // POPUP para contactar
+
+    const contactButtons = document.querySelectorAll(".post button");
+    const miniPopup = document.querySelector(".mini-popup");
+    const miniClose = document.getElementById("mini-close");
+    const miniSend = document.getElementById("mini-send");
+
+    if (contactButtons.length && miniPopup) {
+        contactButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                miniPopup.style.display = "block";
+            });
+        });
+    }
+
+    if (miniClose && miniPopup) {
+        miniClose.addEventListener("click", () => {
+            miniPopup.style.display = "none";
+        });
+    }
+
+    if (miniSend && miniPopup) {
+        miniSend.addEventListener("click", () => {
+            const textarea = miniPopup.querySelector("textarea");
+            alert("Mensaje enviado (simulado)");
+            if (textarea) textarea.value = "";
+            miniPopup.style.display = "none";
+        });
+    }
+
+    // --- MODO SIN IMÁGENES (home.html, resto páginas) ---
+    const toggleImagesBtn = document.getElementById("toggle-images");
+
+    if (toggleImagesBtn) {
+        toggleImagesBtn.addEventListener("click", () => {
+            document.body.classList.toggle("low-data");
+
+            toggleImagesBtn.textContent = document.body.classList.contains("low-data")
+                ? "Modo con imágenes"
+                : "Modo sin imágenes";
+        });
     }
 
 

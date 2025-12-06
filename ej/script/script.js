@@ -687,4 +687,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+    // --- FAVORITOS CON CORAZÓN --- //
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+    const likeButtons = document.querySelectorAll('.like-btn');
+
+    likeButtons.forEach(btn => {
+        const card = btn.closest('.tarjeta-experiencia');
+        if (!card) return;
+
+        const titulo = card.querySelector('h3')?.textContent || "";
+        const imagen = card.querySelector('img')?.src || "";
+
+        // Al cargar, marcar los que ya están en favoritos
+        const yaExiste = favoritos.some(f => f.titulo === titulo && f.imagen === imagen);
+        if (yaExiste) {
+            btn.textContent = '❤';
+            btn.classList.add('activo');
+        } else {
+            btn.textContent = '♡';
+            btn.classList.remove('activo');
+        }
+
+        btn.addEventListener('click', () => {
+            let favoritosActuales = JSON.parse(localStorage.getItem('favoritos')) || [];
+            const index = favoritosActuales.findIndex(f => f.titulo === titulo && f.imagen === imagen);
+
+            if (index === -1) {
+                // Añadir a favoritos
+                favoritosActuales.push({ titulo, imagen });
+                btn.textContent = '❤';
+                btn.classList.add('activo');
+            } else {
+                // Quitar de favoritos
+                favoritosActuales.splice(index, 1);
+                btn.textContent = '♡';
+                btn.classList.remove('activo');
+            }
+
+            localStorage.setItem('favoritos', JSON.stringify(favoritosActuales));
+        });
+    });
+
+
+
+
+
+
+
 });

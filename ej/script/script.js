@@ -158,39 +158,17 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("No hay usuario logueado.");
         }
         // ------ Cerrar Sesión ------
-        const modalCerrarSesion = document.getElementById('modalCerrarSesion');
-        const botonCerrarSesion = document.querySelector('.cerrar-sesion'); // Botón de "Cerrar sesión"
-        const confirmarCerrarSesion = document.getElementById('confirmarCerrarSesion');
-        const cancelarCerrarSesion = document.getElementById('cancelarCerrarSesion');
+        // ------ Cerrar Sesión SIMPLE (sin modal) ------
+        const botonCerrarSesion = document.querySelector('.cerrar-sesion');
 
-        // Mostrar el modal cuando se haga clic en "Cerrar sesión"
         if (botonCerrarSesion) {
-            botonCerrarSesion.addEventListener('click', function () {
-                modalCerrarSesion.style.display = 'block'; // Mostrar el modal
+            botonCerrarSesion.addEventListener('click', () => {
+                localStorage.removeItem('usuarioLogueado'); // quitar sesión
+                window.location.href = 'home.html';         // volver al home normal
             });
         }
 
-        // Función para cerrar sesión (eliminar usuarioLogueado de localStorage y redirigir)
-        function cerrarSesion() {
-            localStorage.removeItem('usuarioLogueado'); // Eliminar datos del usuario logueado
-            window.location.href = 'home.html'; // Redirigir a la página de inicio de sesión
-        }
-
-        // Si el usuario confirma, cerramos sesión
-        if (confirmarCerrarSesion) {
-            confirmarCerrarSesion.addEventListener('click', function () {
-                cerrarSesion();  // Llamar a la función que cierra la sesión
-                modalCerrarSesion.style.display = 'none'; // Cerrar el modal
-            });
-        }
-
-        // Si el usuario cancela, simplemente cerramos el modal
-        if (cancelarCerrarSesion) {
-            cancelarCerrarSesion.addEventListener('click', function () {
-                modalCerrarSesion.style.display = 'none'; // Cerrar el modal sin hacer nada
-            });
-        }
-
+        
         function gestionarProcesoDeCompra() {
 
 
@@ -328,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     let usuarioLogueado = usuarioEncontrado;
                     localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
                     // Si los datos son correctos, redirigir al usuario
-                    window.location.href = 'b.html';  // Redirigir a la página principal
+                    window.location.href = 'usuario_registrado.html';  // Redirigir a la página principal
                 } else {
                     mostrarError("Error: Usuario o contraseña incorrectos");
                 }
@@ -491,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Mostrar mensaje de éxito
                     alert("Datos guardados correctamente. ¡Bienvenido!");
-                    window.location.href = 'b.html';  // Redirigir a la página de éxito
+                    window.location.href = 'usuario_registrado.html';  // Redirigir a la página de éxito
                 }
 
                 // Leer la imagen y convertirla a base64
@@ -505,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 localStorage.setItem('usuarioLogueado', JSON.stringify(datosFormulario));
                 alert("Datos guardados correctamente. ¡Bienvenido!");
-                window.location.href = 'b.html';  // Redirigir a la página de éxito
+                window.location.href = 'usuario_registrado.html';  // Redirigir a la página de éxito
             }
         }
 
@@ -624,6 +602,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (usuarioLogueado) {
 
+
+        //home nuevo --> Comprueba si estas iniciado
+
+        document.querySelectorAll('a[href="home.html"]').forEach(enlace => {
+            enlace.href = 'usuario_registrado.html';   // aquí pones el home de usuario registrado
+        });
+
         // Nombre
         const nombreComunidad = document.getElementById('nombre-usuario-comunidad');
         if (nombreComunidad) nombreComunidad.textContent = usuarioLogueado.nombre;
@@ -635,6 +620,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 fotoComunidad.src = usuarioLogueado.foto;
             } else {
                 fotoComunidad.src = "images/id.png"; // fallback
+            }
+        }
+    }
+
+
+     // --- PERFIL: nombre y foto en perfil.html ---
+    if (usuarioLogueado) {
+        const nombrePerfil = document.getElementById('nombre-usuario-perfil');
+        if (nombrePerfil) nombrePerfil.textContent = usuarioLogueado.nombre;
+
+        const fotoPerfilPerfil = document.getElementById('foto-perfil-perfil');
+        if (fotoPerfilPerfil) {
+            if (usuarioLogueado.foto && usuarioLogueado.foto !== "sin_imagen") {
+                fotoPerfilPerfil.src = usuarioLogueado.foto;
+            } else {
+                fotoPerfilPerfil.src = "images/id.png";
             }
         }
     }
@@ -733,6 +734,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+// --- PERFIL: pintar historial de favoritos en perfil.html ---
+    const contenedorFavoritos = document.getElementById('lista-favoritos');
+
+    if (contenedorFavoritos) {
+        const favoritosGuardados = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+        if (favoritosGuardados.length === 0) {
+            const msg = document.createElement('p');
+            msg.textContent = "Todavía no tienes viajes en favoritos.";
+            contenedorFavoritos.appendChild(msg);
+        } else {
+            favoritosGuardados.forEach(fav => {
+                const card = document.createElement('div');
+                card.className = 'tarjeta-experiencia';
+
+                const img = document.createElement('img');
+                img.src = fav.imagen;
+                img.alt = fav.titulo || "Destino favorito";
+
+                const h3 = document.createElement('h3');
+                h3.textContent = fav.titulo || "Viaje favorito";
+
+                const acciones = document.createElement('div');
+                acciones.className = 'acciones';
+
+                const verMas = document.createElement('a');
+                verMas.href = 'a.html';            //redirigimos al nuevo home
+                verMas.className = 'ver-mas-btn';
+                verMas.textContent = 'Más detalles';
+
+                acciones.appendChild(verMas);
+
+                card.appendChild(img);
+                card.appendChild(h3);
+                card.appendChild(acciones);
+
+                contenedorFavoritos.appendChild(card);
+            });
+        }
+    }
 
 
 

@@ -778,5 +778,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+//boton visitar
+document.querySelectorAll('.btn-visitar').forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = 'pagina_viajes.html';
+    });
+});
+
 
 });

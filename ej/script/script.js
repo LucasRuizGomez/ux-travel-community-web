@@ -72,11 +72,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const vuelta  = document.querySelector("[data-popup='vuelta-popup'] input").value;
         const tipo    = document.querySelector("[data-popup='tipo-popup'] input").value;
 
+        sessionStorage.setItem('busqueda', JSON.stringify({
+            origen,
+            destino,
+            ida,
+            vuelta,
+            tipo
+        }));
+
+        // Redirigimos al formulario de compra
+        window.location.href = 'formulario_compra.html';
+
         console.log({ origen, destino, ida, vuelta, tipo });
     });
 
 
     }
+
+    //lo almacena
+
+    
+
 
    
 
@@ -778,12 +794,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//boton visitar
-document.querySelectorAll('.btn-visitar').forEach(btn => {
-    btn.addEventListener('click', () => {
-        window.location.href = 'pagina_viajes.html';
+    //boton visitar
+    document.querySelectorAll('.btn-visitar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.href = 'pagina_viajes.html';
+        });
     });
-});
+
+
+    const datosBusqueda = sessionStorage.getItem('busqueda');
+
+    if (datosBusqueda) {
+        const { origen, destino, ida, vuelta, tipo } = JSON.parse(datosBusqueda);
+
+        const setValue = (id, value) => {
+            const el = document.getElementById(id);
+            if (el) el.value = value || "";
+        };
+
+        setValue('resumen-origen', origen);
+        setValue('resumen-destino', destino);
+        setValue('resumen-ida', ida);
+        setValue('resumen-vuelta', vuelta);
+        setValue('resumen-tipo', tipo);
+    }
 
 
 });

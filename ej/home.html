@@ -15,24 +15,24 @@
             <input type="checkbox" id="menu-toggle">
     
             <label for="menu-toggle" class="icono-hamburger">
-                <div class="raya"></div>
-                <div class="raya"></div>
-                <div class="raya"></div>
+                 <span class="raya"></span>
+                 <span class="raya"></span>
+                 <span class="raya"></span>
             </label>
             
             <nav class="menu-principal">
-                <a href="home.html">Inicio</a>
-                <a href="comunidad.html">Comunidad</a>
-                <a href="otros_rincones.html">Otros Rincones</a>
+                <a href="home.html" data-i18n="menu_home">Inicio</a>
+                <a href="comunidad.html"  data-i18n="menu_comunidad">Comunidad</a>
+                <a href="otros_rincones.html"  data-i18n="menu_rincones">Otros Rincones</a>
             </nav>
             
             <div class="derecha">
                 <img src="images/mochilachati.png" alt="Logo" width="60"
                     height="60">
 
-                <button id="toggle-images" class="toggle-imagenes">Modo sin imágenes</button>
+                <button id="toggle-images" class="toggle-imagenes" data-i18n="toggle_images">Modo sin imágenes</button>
                 <form class="idioma-form">
-                    <label for="idioma">Idioma</label>
+                    <label for="idioma" data-i18n="menu_language">Idioma</label>
                     <select id="idioma" name="idioma">
                         <option value="es">Español</option>
                         <option value="en">English</option>
@@ -48,44 +48,44 @@
         <div class="search-bar">
 
             <div class="field" data-popup="origen-popup">
-                <label>Desde</label>
-                <input type="text" readonly placeholder="Elige origen">
+                <label data-i18n="search_from">Desde</label>
+                <input type="text" readonly data-i18n-placeholder="search_from_ph" placeholder="Elige origen">
             </div>
 
             <div class="field" data-popup="destino-popup">
-                <label>A</label>
-                <input type="text" readonly placeholder="Elige destino">
+                <label data-i18n="search_to">A</label>
+                <input type="text" readonly data-i18n-placeholder="search_to_ph" placeholder="Elige destino">
             </div>
 
             <div class="field" data-popup="ida-popup">
-                <label>Ida</label>
-                <input type="text" readonly placeholder="Añadir fecha">
+                <label data-i18n="search_departure">Ida</label>
+                <input type="text" readonly data-i18n-placeholder="search_departure_ph" placeholder="Añadir fecha">
             </div>
 
             <div class="field" data-popup="vuelta-popup">
                 <label>Vuelta</label>
-                <input type="text" readonly placeholder="Añadir fecha">
+                <input type="text" readonly data-i18n-placeholder="search_return_ph" placeholder="Añadir fecha">
             </div>
 
             <div class="field" data-popup="tipo-popup">
-                <label>Tipo de viaje</label>
-                <input type="text" readonly placeholder="Opción 1">
+                <label data-i18n="search_type">Tipo de viaje</label>
+                <input type="text" readonly data-i18n-placeholder="search_type_ph" placeholder="Opción 1">
             </div>
 
-            <button class="buscar">Buscar</button>
+            <button class="buscar" data-i18n="search_btn">Buscar</button>
 
         </div>
 
         <div class="popup" id="origen-popup">
-            <div class="option">Madrid</div>
-            <div class="option">Barcelona</div>
-            <div class="option">Valencia</div>
+            <div class="option" data-i18n="city_madrid">Madrid</div>
+            <div class="option" data-i18n="city_barcelona">Barcelona</div>
+            <div class="option" data-i18n="city_valencia">Valencia</div>
         </div>
 
         <div class="popup" id="destino-popup">
-            <div class="option">Roma</div>
-            <div class="option">Lisboa</div>
-            <div class="option">Londres</div>
+            <div class="option" data-i18n="city_rome">Roma</div>
+            <div class="option" data-i18n="city_lisbon">Lisboa</div>
+            <div class="option" data-i18n="city_london">Londres</div>
         </div>
 
         <div class="popup" id="ida-popup">
@@ -97,9 +97,9 @@
         </div>
 
         <div class="popup" id="tipo-popup">
-            <div class="option">Opción 1</div>
-            <div class="option">Opción 2</div>
-            <div class="option">Opción 3</div>
+            <div class="option" data-i18n="trip_opt_1">Opción 1</div>
+            <div class="option" data-i18n="trip_opt_2">Opción 2</div>
+            <div class="option" data-i18n="trip_opt_3">Opción 3</div>
         </div>
 
 
@@ -113,8 +113,8 @@
 
         <section class="banner">
             <div class="banner-contenido">
-                <h1>Mochileros por el mundo</h1>
-                <p>Viajes únicos, experiencias inolvidables y packs a tu
+                <h2>Mochileros por el mundo</h2>
+                <p data-i18n="hero_subtitle">Viajes únicos, experiencias inolvidables y packs a tu
                     medida.</p>
             </div>
         </section>
@@ -159,60 +159,60 @@
 
 
                 <section class="galeria-experiencias">
-                    <h2>¿Estás buscando tu próximo viaje?</h2>
-                    <h3>¡Estos son nuestros top ventas!</h3>
+                    <h2 data-i18n="buscar_viaje_texto">¿Estás buscando tu próximo viaje?</h2>
+                    <h3 data-i18n="top_ventas">¡Estos son nuestros top ventas!</h3>
                     <div class="grid-experiencias">
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia1.jpg"
                                 alt="Montaña nevada">
-                            <h3>Ámsterdam</h3>
+                            <h3 data-i18n="Amsterdam">Ámsterdam</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia2.jpg"
                                 alt="Selva amazónica">
-                            <h3>Ciudad del Cabo</h3>
+                            <h3 data-i18n="ciudad_del_cabo">Ciudad del Cabo</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia3.jpg"
                                 alt="Desierto de Atacama">
-                            <h3>Florencia</h3>
+                            <h3 data-i18n="florence">Florencia</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia4.jpg"
                                 alt="Ruinas de Machu Picchu">
-                            <h3>Hong Kong</h3>
+                            <h3 data-i18n="hong_kong">Hong Kong</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia5.jpg"
                                 alt="Pirámides de Egipto">
-                            <h3>Algeciras</h3>
+                            <h3 data-i18n="algeciras">Algeciras</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
                         <div class="tarjeta-experiencia">
                             <img src="images/experiencia6.jpg"
                                 alt="Auroras boreales en Islandia">
-                            <h3>Getafe</h3>
+                            <h3 data-i18n="getafe">Getafe</h3>
                             <div class="acciones">
-                                <a href="a.html" class="ver-mas-btn">Más detalles</a>
+                                <a href="a.html" class="ver-mas-btn" data-i18n="btn_more_details">Más detalles</a>
                                 
                             </div>
                         </div>
@@ -222,50 +222,50 @@
             <aside>
                 <section class="formulario">
                     <form action="b.html" method="get" autocomplete="off">
-                        <h3>¿Todavía no formas parte de nuestra comunidad?</h3>
-                        <input type="text" id="usuario" placeholder="Usuario"
+                        <h3 data-i18n="login_title">¿Todavía no formas parte de nuestra comunidad?</h3>
+                        <input type="text" id="usuario" data-i18n-placeholder="login_user_ph" placeholder="Usuario"
                             required>
-                        <input type="password" id="contraseña"
+                        <input type="password" id="contraseña" data-i18n-placeholder="login_pass_ph"
                             placeholder="Contraseña" required>
                         <label class="recordar">
                             <input type="checkbox" id="recordar"
-                                name="recordar">Recordar credenciales
+                                name="recordar"><span data-i18n="login_remember">Recordar credenciales</span>
                         </label>
-                        <button type="submit" class="boton-formulario" id="iniciosesion">Iniciar sesión</button>
-                        <a href="a.html" class="boton-formulario">Registro</a>
+                        <button type="submit" class="boton-formulario" id="iniciosesion" data-i18n="login_btn">Iniciar sesión</button>
+                        <a href="a.html" class="boton-formulario" data-i18n="register_btn"> Registro</a>
                     </form>
                 </section>
 
                 <section class="lista">
-                    <h4>Top destinos mochileros</h4>
+                    <h4 data-i18n="top_destinations">Top destinos mochileros</h4>
                     <ul>
-                        <li><a href="otros_rincones.html">Tailandia</a></li>
+                        <li><a href="otros_rincones.html" data-i18n="country_thailand">Tailandia</a></li>
 
-                        <li><a href="otros_rincones.html">Noruega</a></li>
-                        <li><a href="otros_rincones.html">Marruecos</a></li>
-                        <li><a href="otros_rincones.html">Perú</a></li>
-                        <li><a href="otros_rincones.html">Nueva Zelanda</a></li>
+                        <li><a href="otros_rincones.html" data-i18n="country_norway">Noruega</a></li>
+                        <li><a href="otros_rincones.html" data-i18n="country_morocco">Marruecos</a></li>
+                        <li><a href="otros_rincones.html" data-i18n="country_peru">Perú</a></li>
+                        <li><a href="otros_rincones.html" data-i18n="country_new_zealand">Nueva Zelanda</a></li>
                     </ul>
                 </section>
                 <section class="lista">
-                    <h4>Consejos rápidos</h4>
+                    <h4 data-i18n="quick_tips" >Consejos rápidos</h4>
                     <ul>
-                        <li><a href="comunidad.html">Lleva seguro médico y documento de
+                        <li><a href="comunidad.html" data-i18n="tip_1">Lleva seguro médico y documento de
                                 identidad</a></li>
-                        <li><a href="comunidad.html">Infórmate sobre visados con
+                        <li><a href="comunidad.html" data-i18n="tip_2">Infórmate sobre visados con
                                 antelación</a></li>
-                        <li><a href="comunidad.html">Viaja ligero de equipaje</a></li>
+                        <li><a href="comunidad.html" data-i18n="tip_3">Viaja ligero de equipaje</a></li>
 
                     </ul>
                 </section>
                 <section class="lista">
-                    <h4>Próximos encuentros</h4>
+                    <h4 data-i18n="next_meetups">Próximos encuentros</h4>
                     <ul>
-                        <li><a href="comunidad.html">Ruta por los Pirineos -
+                        <li><a href="comunidad.html" data-i18n="meetup_1">Ruta por los Pirineos -
                                 25/10/2025</a></li>
-                        <li><a href="comunidad.html">Subida al Monte Tubqal -
+                        <li><a href="comunidad.html" data-i18n="meetup_2">Subida al Monte Tubqal -
                                 14/12/2025</a></li>
-                        <li><a href="comunidad.html">Aventura en el Desierto de Atacama
+                        <li><a href="comunidad.html" data-i18n="meetup_3">Aventura en el Desierto de Atacama
                                 - 05/04/2026</a></li>
                     </ul>
                 </section>
@@ -281,9 +281,9 @@
         <!-- Nuevo bloque entero -->
 
         <div class="nuevas_aventuras">
-            <h1>¿Buscas nuevas aventuras?</h1>
-            <h3>Mira nuestras ofertas</h3>
-            <button class="ver-mas-btn">Ver mas</button>
+            <h1 data-i18n="new_adventures">¿Buscas nuevas aventuras?</h1>
+            <h3 data-i18n="see_offers">Mira nuestras ofertas</h3>
+            <button class="ver-mas-btn" data-i18n="btn_view_more">Ver más</button>
         </div>
 
 
@@ -291,7 +291,7 @@
 
         <!-- LOS BOTONES DE AQUI TE LLEVAN AL FORO -->
         <div class="carousel-resenias">
-            <h2>Estas son algunas opiniones de antiguos viajeros</h2>
+            <h2 data-i18n="reviews_title">Estas son algunas opiniones de antiguos viajeros</h2>
             
             <section class="carrusel">
                     <button class="flecha"><span
@@ -301,21 +301,21 @@
                         <h3>Juan Jose</h3>
                         <p>Dope Af frfr 100% recommend.</p>
                         
-                        <a href="comunidad.html" class="comprar-btn">Leer más</a>
+                        <a href="comunidad.html" class="comprar-btn" data-i18n="read_more">Leer más</a>
                     </div>
                     <div class="pack">
                         <img src="images/bad.jpg" alt="Pack 2">
                         <h3>La jenny</h3>
                         <p>Achoachoachoachoacho.</p>
                         
-                        <a href="comunidad.html" class="comprar-btn">Leer más</a>
+                        <a href="comunidad.html" class="comprar-btn" data-i18n="read_more">Leer más</a>
                     </div>
                     <div class="pack">
                         <img src="images/perro.jpg" alt="Pack 3">
                         <h3>Borja</h3>
                         <p>Pobres todos</p>
                         
-                        <a href="comunidad.html" class="comprar-btn">Leer más</a>
+                        <a href="comunidad.html" class="comprar-btn" data-i18n="read_more">Leer más</a>
                     </div>
                     <button class="flecha"><span
                             class="flecha-simbolo">&#129030;</span></button>
@@ -339,10 +339,10 @@
                 reservados.
             </div>
             <div class="footer-enlaces">
-                <a href="#">Sobre nosotros</a>
-                <a href="#">Política de privacidad</a>
-                <a href="#">Ayuda</a>
-                <a href="#">Contacto</a>
+                <a href="#" data-i18n="footer_about">Sobre nosotros</a>
+                <a href="#" data-i18n="footer_privacy">Política de privacidad</a>
+                <a href="#" data-i18n="footer_help">Ayuda</a>
+                <a href="#" data-i18n="footer_contact">Contacto</a>
             </div>
             <div class="footer-redes">
                 <a href="#" title="Instagram" aria-label="Instagram">
@@ -358,11 +358,11 @@
                 </a>
             </div>
             <form class="footer-newsletter" action="#" method="post">
-                <label for="newsletter-email" class="suscribete">Suscríbete a la
+                <label for="newsletter-email" class="suscribete" data-i18n="footer_newsletter">Suscríbete a la
                     newsletter</label>
                 <input type="email" id="newsletter-email" name="email"
                     placeholder="Tu email" required>
-                <button type="submit">Suscribirse</button>
+                <button type="submit" data-i18n="btn_subscribe">Suscribirse</button>
             </form>
         </footer>
         <div id="errorModal" class="modal" style="display:none;">

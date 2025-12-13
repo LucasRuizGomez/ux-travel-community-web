@@ -1295,7 +1295,7 @@
 
 
 
-
+            
 
             .pack-estatico {
                 background: #fff;
@@ -1312,6 +1312,39 @@
                 height: 220px;
                 object-fit: cover;
             }
+
+
+
+
+            .crear-post textarea {
+                width: 100%;
+                border-radius: 8px;
+                padding: 10px;
+                resize: none;
+                margin-top: 10px;
+                font-family: inherit;
+                align-self: center;
+            }
+
+            .crear-post button {
+                margin-top: 10px;
+                align-self: flex-end;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

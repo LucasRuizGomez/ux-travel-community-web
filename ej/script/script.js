@@ -660,18 +660,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // POPUP para contactar
 
-    const contactButtons = document.querySelectorAll(".post button");
+    
     const miniPopup = document.querySelector(".mini-popup");
     const miniClose = document.getElementById("mini-close");
     const miniSend = document.getElementById("mini-send");
 
-    if (contactButtons.length && miniPopup) {
-        contactButtons.forEach(btn => {
-            btn.addEventListener("click", () => {
+
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-contactar")) {
+            const miniPopup = document.querySelector(".mini-popup");
+            if (miniPopup) {
                 miniPopup.style.display = "block";
-            });
-        });
-    }
+            }
+        }
+    });
 
     if (miniClose && miniPopup) {
         miniClose.addEventListener("click", () => {
@@ -818,6 +820,384 @@ document.addEventListener('DOMContentLoaded', function () {
         setValue('resumen-vuelta', vuelta);
         setValue('resumen-tipo', tipo);
     }
+
+
+
+
+    // --- CREAR POSTS EN COMUNIDAD ---
+    const btnPublicar = document.getElementById('publicar-post');
+    const textareaPost = document.getElementById('texto-nuevo-post');
+    const contenedorPosts = document.querySelector('.col-centro');
+
+    if (btnPublicar && textareaPost && contenedorPosts) {
+        const usuario = JSON.parse(localStorage.getItem('usuarioLogueado'));
+
+        // Rellenar nombre y foto en la caja de escribir
+        const nombreUI = document.getElementById('nombre-post-usuario');
+        const fotoUI = document.getElementById('foto-post-usuario');
+
+        if (usuario) {
+            if (nombreUI) nombreUI.textContent = usuario.nombre;
+            if (fotoUI) fotoUI.src = usuario.foto || 'images/id.png';
+        }
+
+        btnPublicar.addEventListener('click', () => {
+            const texto = textareaPost.value.trim();
+            if (!texto) return;
+
+            const nuevoPost = {
+                nombre: usuario.nombre,
+                foto: usuario.foto || 'images/id.png',
+                texto: texto,
+                fecha: 'Ahora mismo'
+            };
+
+            // Guardar en localStorage
+            let posts = JSON.parse(localStorage.getItem('postsComunidad')) || [];
+            posts.unshift(nuevoPost);
+            localStorage.setItem('postsComunidad', JSON.stringify(posts));
+
+            insertarPostEnDOM(nuevoPost);
+            textareaPost.value = '';
+        });
+    }
+
+
+
+    function insertarPostEnDOM(post) {
+        const contenedorPosts = document.querySelector('.col-centro');
+
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post';
+
+        postDiv.innerHTML = `
+            <div class="post-header">
+                <img src="${post.foto}">
+                <div>
+                    <h3>${post.nombre}</h3>
+                    <p class="timestamp">${post.fecha}</p>
+                </div>
+            </div>
+            <div class="post-content">
+                ${post.texto}
+            </div>
+            <button class="btn-contactar">Contactar</button>
+        `;
+
+        // Insertar justo DESPUÉS del bloque de crear post
+        const crearPost = document.querySelector('.crear-post');
+        contenedorPosts.insertBefore(postDiv, crearPost.nextSibling);
+    }
+
+
+
+    if (document.querySelector('.crear-post')) {
+        const postsGuardados = JSON.parse(localStorage.getItem('postsComunidad')) || [];
+        postsGuardados.forEach(post => insertarPostEnDOM(post));
+    }
+
+
+
+
+
+
+    // --- INTERNACIONALIZACIÓN HOME ---
+    const i18n = {
+        es: {
+            
+            menu_home: "Inicio",
+            menu_comunidad: "Comunidad",
+            menu_rincones: "Otros Rincones",
+            menu_language: "Idioma",
+
+            
+            
+            hero_subtitle: "Viajes únicos, experiencias inolvidables y packs a tu medida.",
+            buscar_viaje_texto: "¿Estás buscando tu próximo viaje?",
+            top_ventas: "¡Estos son nuestros top ventas!",
+
+            // Packs
+
+            
+           Amsterdam: "Ámsterdam",
+           ciudad_del_cabo: "Ciudad del Cabo",
+           algeciras: "Algeciras",
+            getafe: "Getafe",
+
+            login_title: "¿Todavía no formas parte de nuestra comunidad?",
+            login_user_ph: "Usuario",
+            login_pass_ph: "Contraseña",
+            login_remember: "Recordar credenciales",
+            login_btn: "Iniciar sesión",
+            register_btn: "Registro",
+
+            top_destinations: "Top destinos mochileros",
+            quick_tips: "Consejos rápidos",
+            next_meetups: "Próximos encuentros",
+
+            tip_1: "Lleva seguro médico y documento de identidad",
+            tip_2: "Infórmate sobre visados con antelación",
+            tip_3: "Viaja ligero de equipaje",
+
+            new_adventures: "¿Buscas nuevas aventuras?",
+            see_offers: "Mira nuestras ofertas",
+
+            reviews_title: "Estas son algunas opiniones de antiguos viajeros",
+            read_more: "Leer más",
+
+            toggle_images_off: "Modo sin imágenes",
+            toggle_images_on: "Modo con imágenes",
+            toggle_images: "Modo sin imágenes",
+
+            search_from: "Desde",
+            search_to: "A",
+            search_departure: "Ida",
+            search_return: "Vuelta",
+            search_type: "Tipo de viaje",
+            search_btn: "Buscar",
+
+            search_from_ph: "Elige origen",
+            search_to_ph: "Elige destino",
+            search_departure_ph: "Añadir fecha",
+            search_return_ph: "Añadir fecha",
+            search_type_ph: "Opción 1",
+
+            city_madrid: "Madrid",
+            city_barcelona: "Barcelona",
+            city_valencia: "Valencia",
+            city_rome: "Roma",
+            city_lisbon: "Lisboa",
+            city_london: "Londres",
+
+            trip_opt_1: "Opción 1",
+            trip_opt_2: "Opción 2",
+            trip_opt_3: "Opción 3",
+
+            btn_more_details: "Más detalles",
+
+            login_user_ph: "Usuario",
+            login_pass_ph: "Contraseña",
+
+            country_thailand: "Tailandia",
+            country_norway: "Noruega",
+            country_morocco: "Marruecos",
+            country_peru: "Perú",
+            country_new_zealand: "Nueva Zelanda",
+
+            meetup_1: "Ruta por los Pirineos - 25/10/2025",
+            meetup_2: "Subida al Monte Tubqal - 14/12/2025",
+            meetup_3: "Aventura en el Desierto de Atacama - 05/04/2026"
+
+        },
+
+            
+
+        en: {
+            // Menu
+            menu_home: "Home",
+            menu_comunidad: "Community",
+            menu_rincones: "Other Places",
+            menu_language: "Language",
+
+            // Banner
+            
+            hero_subtitle: "Unique trips, unforgettable experiences and tailor-made packages.",
+            buscar_viaje_texto: "Are you looking for your next trip?",
+            top_ventas: "These are our top sellers!",
+
+            Amsterdam: "Amsterdam",
+            ciudad_del_cabo: "Cape Town",
+            florence: "Florencia",
+            hong_kong: "Hong Kong",
+            algeciras: "Algeciras",
+            getafe: "Getafe",
+
+            login_title: "Not part of our community yet?",
+            login_user_ph: "Username",
+            login_pass_ph: "Password",
+            login_remember: "Remember credentials",
+            login_btn: "Log in",
+            register_btn: "Register",
+
+            top_destinations: "Top backpacker destinations",
+            quick_tips: "Quick tips",
+            next_meetups: "Upcoming meetups",
+
+            tip_1: "Carry medical insurance and ID",
+            tip_2: "Check visa requirements in advance",
+            tip_3: "Travel light",
+
+            new_adventures: "Looking for new adventures?",
+            see_offers: "Check our offers",
+
+            reviews_title: "Here are some reviews from past travelers",
+            read_more: "Read more",
+            toggle_images_off: "No images mode",
+            toggle_images_on: "Images mode",
+            toggle_images: "No images mode",
+
+            search_from: "From",
+            search_to: "To",
+            search_departure: "Departure",
+            search_return: "Return",
+            search_type: "Trip type",
+            search_btn: "Search",
+
+            search_from_ph: "Choose origin",
+            search_to_ph: "Choose destination",
+            search_departure_ph: "Add date",
+            search_return_ph: "Add date",
+            search_type_ph: "Option 1",
+
+            city_madrid: "Madrid",
+            city_barcelona: "Barcelona",
+            city_valencia: "Valencia",
+            city_rome: "Rome",
+            city_lisbon: "Lisbon",
+            city_london: "London",
+
+            trip_opt_1: "Option 1",
+            trip_opt_2: "Option 2",
+            trip_opt_3: "Option 3",
+
+            btn_more_details: "More details",
+
+            login_user_ph: "Username",
+            login_pass_ph: "Password",
+
+            country_thailand: "Thailand",
+            country_norway: "Norway",
+            country_morocco: "Morocco",
+            country_peru: "Peru",
+            country_new_zealand: "New Zealand",
+
+            meetup_1: "Pyrenees route - 25/10/2025",
+            meetup_2: "Climb Mount Toubkal - 14/12/2025",
+            meetup_3: "Atacama Desert adventure - 05/04/2026"
+
+            
+        },
+
+        fr: {
+            // Menu
+            menu_home: "Accueil",
+            menu_comunidad: "Communauté",
+            menu_rincones: "Autres Destinations",
+            menu_language: "Langue",
+
+            // Banner
+            
+            hero_subtitle: "Voyages uniques, expériences inoubliables et offres sur mesure.",
+            buscar_viaje_texto: "Vous cherchez votre prochain voyage ?",
+            top_ventas: "Voici nos meilleures ventes !",
+
+
+            Amsterdam: "Amsterdam",
+            ciudad_del_cabo: "Le Cap",
+            florence: "Florence",
+            hong_kong: "Hong Kong",
+            algeciras: "Algésiras",
+            getafe: "Getafe",
+
+            login_title: "Vous ne faites pas encore partie de notre communauté ?",
+            login_user_ph: "Utilisateur",
+            login_pass_ph: "Mot de passe",
+            login_remember: "Se souvenir des identifiants",
+            login_btn: "Se connecter",
+            register_btn: "S’inscrire",
+
+            top_destinations: "Destinations préférées des backpackers",
+            quick_tips: "Conseils rapides",
+            next_meetups: "Prochaines rencontres",
+
+            tip_1: "Emportez une assurance médicale et une pièce d’identité",
+            tip_2: "Renseignez-vous sur les visas à l’avance",
+            tip_3: "Voyagez léger",
+
+            new_adventures: "Vous cherchez de nouvelles aventures ?",
+            see_offers: "Découvrez nos offres",
+
+            reviews_title: "Voici quelques avis d’anciens voyageurs",
+            read_more: "Lire plus",
+            toggle_images_off: "Mode sans images",
+            toggle_images_on: "Mode avec images",
+            toggle_images: "Mode sans images",
+
+            search_from: "De",
+            search_to: "À",
+            search_departure: "Aller",
+            search_return: "Retour",
+            search_type: "Type de voyage",
+            search_btn: "Rechercher",
+
+            search_from_ph: "Choisir l’origine",
+            search_to_ph: "Choisir la destination",
+            search_departure_ph: "Ajouter une date",
+            search_return_ph: "Ajouter une date",
+            search_type_ph: "Option 1",
+
+            city_madrid: "Madrid",
+            city_barcelona: "Barcelone",
+            city_valencia: "Valence",
+            city_rome: "Rome",
+            city_lisbon: "Lisbonne",
+            city_london: "Londres",
+
+            trip_opt_1: "Option 1",
+            trip_opt_2: "Option 2",
+            trip_opt_3: "Option 3",
+
+            btn_more_details: "Plus de détails",
+
+            login_user_ph: "Utilisateur",
+            login_pass_ph: "Mot de passe",
+
+            country_thailand: "Thaïlande",
+            country_norway: "Norvège",
+            country_morocco: "Maroc",
+            country_peru: "Pérou",
+            country_new_zealand: "Nouvelle-Zélande",
+
+            meetup_1: "Itinéraire dans les Pyrénées - 25/10/2025",
+            meetup_2: "Ascension du mont Toubkal - 14/12/2025",
+            meetup_3: "Aventure dans le désert d’Atacama - 05/04/2026"
+
+        }
+    };
+
+
+
+    function cambiarIdioma(idioma) {
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.dataset.i18n;
+            if (i18n[idioma] && i18n[idioma][key]) {
+                el.textContent = i18n[idioma][key];
+            }
+        });
+
+        localStorage.setItem("idioma", idioma);
+    }
+
+
+    const selectorIdioma = document.getElementById("idioma");
+
+    if (selectorIdioma) {
+        // Cargar idioma guardado
+        const idiomaGuardado = localStorage.getItem("idioma") || "es";
+        selectorIdioma.value = idiomaGuardado;
+        cambiarIdioma(idiomaGuardado);
+
+        selectorIdioma.addEventListener("change", (e) => {
+            cambiarIdioma(e.target.value);
+        });
+    }
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (i18n[idioma] && i18n[idioma][key]) {
+            el.placeholder = i18n[idioma][key];
+        }
+    });
 
 
 });

@@ -15,9 +15,9 @@
             <input type="checkbox" id="menu-toggle">
     
             <label for="menu-toggle" class="icono-hamburger">
-                <div class="raya"></div>
-                <div class="raya"></div>
-                <div class="raya"></div>
+                 <span class="raya"></span>
+                 <span class="raya"></span>
+                 <span class="raya"></span>
             </label>
             
             <nav class="menu-principal">
@@ -51,7 +51,7 @@
 
             <aside class="col-izq-comunidad">
                 <div class="perfil-comunidad">
-                    <img id="foto-perfil-comunidad" src="images/id.png">
+                    <img id="foto-perfil-comunidad" src="images/id.png" alt="Foto de perfil del usuario">
 
                     <!-- Poner como cuando inicias sesion que sale TU nombre  -->
 
@@ -64,9 +64,41 @@
 
             <main class="col-centro">
 
+                <!-- Crear nuevo post -->
+                <div class="post crear-post">
+                    <div class="post-header">
+                        <img id="foto-post-usuario" src="images/id.png" alt="Foto del post del usuario">
+                        <div>
+                            <h3 id="nombre-post-usuario">Usuario</h3>
+                        </div>
+                    </div>
+
+                    <textarea id="texto-nuevo-post"
+                        placeholder="¿Qué quieres compartir con la comunidad?"
+                        rows="4"></textarea>
+
+                    <button id="publicar-post">Publicar</button>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/cayetano.jpeg">
+                        <img src="images/cayetano.jpeg" alt="Foto de perfil extra1">
                         <div>
                             <h3>Juan García</h3>
                             <p class="timestamp">Hace 2 horas</p>
@@ -78,12 +110,12 @@
 
 
                     <!-- Vale aqui hay que decidir si queremos que salga un popup como al principio o nos lleve a otro sitio -->
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/ye.jpeg">
+                        <img src="images/ye.jpeg" alt="Foto de perfil extra2">
                         <div>
                             <h3>MochileroAndaluz</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -92,12 +124,12 @@
                     <div class="post-content">
                         Mi viaje a Islandia fue corto pero intensísimo. Conducir por carreteras rodeadas de lava y musgo parecía sacado de una película de ciencia ficción. Tuve la suerte de ver auroras boreales desde una pequeña cabaña, sin nadie alrededor, en un silencio casi absoluto. Nunca había sentido una conexión tan fuerte con la naturaleza.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/bbtrucos.jpeg">
+                        <img src="images/bbtrucos.jpeg" alt="Foto de perfil extra3">
                         <div>
                             <h3>LunaViajera</h3>
                             <p class="timestamp">Ayer</p>
@@ -106,12 +138,12 @@
                     <div class="post-content">
                         Pasé una semana en Tokio y aún así sentí que no había visto ni la mitad. Me fascinó el contraste entre la modernidad extrema de Shibuya y la calma de los templos en Asakusa. Comer ramen en un local diminuto a las dos de la mañana, rodeado de locales, fue una de las mejores comidas de mi vida. Japón me enseñó que el orden y el caos pueden convivir perfectamente.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/hombre.jpg">
+                        <img src="images/hombre.jpg" alt="Foto de perfil extra4">
                         <div>
                             <h3>RutasUrbanas</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -120,14 +152,14 @@
                     <div class="post-content">
                         Recorrer la Patagonia argentina fue un reto físico y mental. Las caminatas eran duras, el viento no daba tregua, pero cada esfuerzo valía la pena cuando aparecían los glaciares y las montañas nevadas. Sentí una inmensidad que nunca había experimentado antes. Es un destino que te hace sentir pequeño, pero muy vivo.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
 
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/cayetano.jpeg">
+                        <img src="images/cayetano.jpeg" alt="Foto de perfil extra4">
                         <div>
                             <h3>VientoDelSur</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -136,14 +168,14 @@
                     <div class="post-content">
                         En Lisboa me enamoré de la ciudad sin esperarlo. Pasear por Alfama, escuchar fado desde una ventana abierta y tomar café en miradores con vistas al Tajo fue pura magia. La ciudad tiene una melancolía suave que te atrapa poco a poco. Volví con la sensación de haber estado en casa.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
 
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/bad.jpg">
+                        <img src="images/bad.jpg" alt="Foto de perfil extra5">
                         <div>
                             <h3>CafeyKilometros</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -152,14 +184,14 @@
                     <div class="post-content">
                         Vivir un mes en Chiang Mai, en Tailandia, cambió mi forma de ver el trabajo y los viajes. Por la mañana trabajaba en cafés tranquilos y por la tarde exploraba templos o mercados nocturnos. La comida callejera era increíble y muy barata, y la gente siempre sonreía. Es un lugar perfecto para bajar el ritmo y replantearse prioridades.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
 
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/kanye.jpg">
+                        <img src="images/kanye.jpg" alt="Foto de perfil extra6">
                         <div>
                             <h3>NomadaDigital</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -168,12 +200,12 @@
                     <div class="post-content">
                         Mi experiencia en Nueva Zelanda fue un continuo “wow”. Cada día parecía ofrecer un paisaje distinto: playas salvajes, montañas, lagos de colores imposibles. Hice un road trip en furgoneta y dormir rodeado de naturaleza fue inolvidable. Es uno de esos países que te invita a la aventura constante.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/perro.jpg">
+                        <img src="images/perro.jpg" alt="Foto de perfil extra7">
                         <div>
                             <h3>HorizonteLibre</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -182,14 +214,14 @@
                     <div class="post-content">
                         Viajar solo por Estambul fue más fácil de lo que pensaba. Me sentí seguro en todo momento y la mezcla cultural de la ciudad me fascinó. Tomar té con desconocidos, perderme por el Gran Bazar y ver el atardecer sobre el Bósforo fue simplemente espectacular. Es una ciudad que conecta continentes y emociones.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
 
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/cayetano.jpeg">
+                        <img src="images/cayetano.jpeg" alt="Foto de perfil extra8">
                         <div>
                             <h3>BrújulaPerdida</h3>
                             <p class="timestamp">Hace 2 horas</p>
@@ -198,13 +230,13 @@
                     <div class="post-content">
                         Hacer el Camino de Santiago fue una experiencia más espiritual que turística. Cada día caminando, conociendo gente de todo el mundo y compartiendo historias, creó un ambiente muy especial. No importa de dónde vengas, todos acaban siendo iguales en el camino. Llegar a la catedral fue mucho más emotivo de lo que esperaba.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
 
                 <div class="post">
                     <div class="post-header">
-                        <img src="images/ye.jpeg">
+                        <img src="images/ye.jpeg" alt="Foto de perfil extra9">
                         <div>
                             <h3>SenderosAntiguos</h3>
                             <p class="timestamp">Hace 5 horas</p>
@@ -213,7 +245,7 @@
                     <div class="post-content">
                         Mi viaje a las Islas Filipinas superó todas mis expectativas. Playas de arena blanca, aguas cristalinas y una tranquilidad difícil de encontrar hoy en día. Practiqué snorkel en arrecifes increíbles y probé pescado fresco todos los días. Es un destino ideal para desconectar completamente del mundo.
                     </div>
-                    <button>Contactar</button>
+                    <button class="btn-contactar">Contactar</button>
                 </div>
 
                 

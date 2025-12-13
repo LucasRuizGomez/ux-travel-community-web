@@ -15,7 +15,7 @@
             <div class="nombre-sitio">Mochileros por el mundo</div>
             <input type="checkbox" id="menu-toggle">
     
-            <label for="menu-toggle" class="icono-hamburger">
+            <label for="menu-toggle" class="icono-hamburger" aria-label="Abrir menú de navegación">
                  <span class="raya"></span>
                  <span class="raya"></span>
                  <span class="raya"></span>
@@ -66,8 +66,8 @@
                     title="Correo no válido. Ejemplo: usuario@dominio.extensión"
                     required>
 
-                <input type="date" id="fecha_registro" class="full-width"
-                    required>
+                <label for="fecha_registro" class="sr-only">Fecha de nacimiento</label>
+                <input type="date" id="fecha_registro" class="full-width" required>
 
                 <input type="text" id="usuario_registro"
                     pattern="^[A-Za-z]{5,}$"
@@ -80,6 +80,7 @@
                     title="La contraseña debe tener al menos 8 caracteres, con mínimo 2 números, 1 mayúscula, 1 minúscula y 1 carácter especial."
                     placeholder="Contraseña*" required>
 
+                <label for="foto_registro" class="sr-only">Foto de perfil</label>
                 <input type="file" id="foto_registro" class="full-width"
                     accept="image/jpeg, image/png, image/webp" required>
 

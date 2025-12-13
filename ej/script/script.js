@@ -872,7 +872,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         postDiv.innerHTML = `
             <div class="post-header">
-                <img src="${post.foto}">
+                <img src="${post.foto}" alt="Foto de perfil de ${post.nombre}">
                 <div>
                     <h3>${post.nombre}</h3>
                     <p class="timestamp">${post.fecha}</p>

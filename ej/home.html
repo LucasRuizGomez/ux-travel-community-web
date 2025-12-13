@@ -14,7 +14,7 @@
             <div class="nombre-sitio">Mochileros por el mundo</div>
             <input type="checkbox" id="menu-toggle">
     
-            <label for="menu-toggle" class="icono-hamburger">
+            <label for="menu-toggle" class="icono-hamburger" aria-label="Abrir menú de navegación">
                  <span class="raya"></span>
                  <span class="raya"></span>
                  <span class="raya"></span>
@@ -27,7 +27,7 @@
             </nav>
             
             <div class="derecha">
-                <img src="images/mochilachati.png" alt="Logo" width="60"
+                <img src="images/mochilachati.png" alt="Logo de Mochileros por el mundo" width="60"
                     height="60">
 
                 <button id="toggle-images" class="toggle-imagenes" data-i18n="toggle_images">Modo sin imágenes</button>
@@ -48,28 +48,28 @@
         <div class="search-bar">
 
             <div class="field" data-popup="origen-popup">
-                <label data-i18n="search_from">Desde</label>
-                <input type="text" readonly data-i18n-placeholder="search_from_ph" placeholder="Elige origen">
+                <label for="origen-input" data-i18n="search_from">Desde</label>
+                <input id="origen-input" type="text" readonly data-i18n-placeholder="search_from_ph" placeholder="Elige origen">
             </div>
 
             <div class="field" data-popup="destino-popup">
-                <label data-i18n="search_to">A</label>
-                <input type="text" readonly data-i18n-placeholder="search_to_ph" placeholder="Elige destino">
+                <label for="destino-input" data-i18n="search_to">A</label>
+                <input id="destino-input" type="text" readonly data-i18n-placeholder="search_to_ph" placeholder="Elige destino">
             </div>
 
             <div class="field" data-popup="ida-popup">
-                <label data-i18n="search_departure">Ida</label>
-                <input type="text" readonly data-i18n-placeholder="search_departure_ph" placeholder="Añadir fecha">
+                <label for="ida-input" data-i18n="search_departure">Ida</label>
+                <input id="ida-input" type="text" readonly data-i18n-placeholder="search_departure_ph" placeholder="Añadir fecha">
             </div>
 
             <div class="field" data-popup="vuelta-popup">
-                <label>Vuelta</label>
-                <input type="text" readonly data-i18n-placeholder="search_return_ph" placeholder="Añadir fecha">
+                <label for="vuelta-input">Vuelta</label>
+                <input id="vuelta-input" type="text" readonly data-i18n-placeholder="search_return_ph" placeholder="Añadir fecha">
             </div>
 
             <div class="field" data-popup="tipo-popup">
-                <label data-i18n="search_type">Tipo de viaje</label>
-                <input type="text" readonly data-i18n-placeholder="search_type_ph" placeholder="Opción 1">
+                <label for="tipo-input" data-i18n="search_type">Tipo de viaje</label>
+                <input id="tipo-input" type="text" readonly data-i18n-placeholder="search_type_ph" placeholder="Opción 1">
             </div>
 
             <button class="buscar" data-i18n="search_btn">Buscar</button>
@@ -89,12 +89,15 @@
         </div>
 
         <div class="popup" id="ida-popup">
-            <input type="date">
+            <label for="ida-date" class="sr-only">Fecha de ida</label>
+            <input id="ida-date" type="date">
         </div>
 
         <div class="popup" id="vuelta-popup">
-            <input type="date">
+            <label for="vuelta-date" class="sr-only">Fecha de vuelta</label>
+            <input id="vuelta-date" type="date">
         </div>
+
 
         <div class="popup" id="tipo-popup">
             <div class="option" data-i18n="trip_opt_1">Opción 1</div>
@@ -223,8 +226,10 @@
                 <section class="formulario">
                     <form action="b.html" method="get" autocomplete="off">
                         <h3 data-i18n="login_title">¿Todavía no formas parte de nuestra comunidad?</h3>
+                        <label for="usuario" class="sr-only">Usuario</label>
                         <input type="text" id="usuario" data-i18n-placeholder="login_user_ph" placeholder="Usuario"
                             required>
+                        <label for="contraseña" class="sr-only">Contraseña</label>
                         <input type="password" id="contraseña" data-i18n-placeholder="login_pass_ph"
                             placeholder="Contraseña" required>
                         <label class="recordar">
@@ -282,7 +287,7 @@
 
         <div class="nuevas_aventuras">
             <h1 data-i18n="new_adventures">¿Buscas nuevas aventuras?</h1>
-            <h3 data-i18n="see_offers">Mira nuestras ofertas</h3>
+            <h2 data-i18n="see_offers">Mira nuestras ofertas</h2>
             <button class="ver-mas-btn" data-i18n="btn_view_more">Ver más</button>
         </div>
 

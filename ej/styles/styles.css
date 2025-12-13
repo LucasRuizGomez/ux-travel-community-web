@@ -268,7 +268,7 @@
             .galeria-experiencias h3 {
                 text-align: center;
                 margin-bottom: 18px;
-                color: #28522666;
+                color: #1f3b1d9f;
 
             }
 
@@ -900,7 +900,7 @@
                 color: #285226;
             }
 
-            .nuevas_aventuras h3{
+            .nuevas_aventuras h2{
                 text-align: center;
                 margin-bottom: 24px;
                 color: #285226;
@@ -957,7 +957,7 @@
 
             .field label {
                 font-size: 12px;
-                color: gray;
+                color: rgb(0, 0, 0);
             }
 
             .field input {
@@ -1199,7 +1199,7 @@
 
             .timestamp {
                 font-size: 12px;
-                color: gray;
+                color: rgb(77, 77, 77);
             }
 
 

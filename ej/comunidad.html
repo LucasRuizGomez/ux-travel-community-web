@@ -14,7 +14,7 @@
             <div class="nombre-sitio">Mochileros por el mundo</div>
             <input type="checkbox" id="menu-toggle">
     
-            <label for="menu-toggle" class="icono-hamburger">
+            <label for="menu-toggle" class="icono-hamburger" aria-label="Abrir menú de navegación">
                  <span class="raya"></span>
                  <span class="raya"></span>
                  <span class="raya"></span>
@@ -73,9 +73,11 @@
                         </div>
                     </div>
 
-                    <textarea id="texto-nuevo-post"
-                        placeholder="¿Qué quieres compartir con la comunidad?"
-                        rows="4"></textarea>
+                    <label for="texto-nuevo-post" class="sr-only">Contenido del post</label>
+                    <textarea
+                    id="texto-nuevo-post"
+                    placeholder="¿Qué quieres compartir con la comunidad?"
+                    rows="4"></textarea>
 
                     <button id="publicar-post">Publicar</button>
                 </div>
@@ -362,11 +364,13 @@
 
 
 
-        <div id="mini-popup" class="mini-popup">
-            <div class="mini-box">
-                <textarea id="mini-msg" placeholder="Escribe un mensaje..."></textarea>
-                <button id="mini-send">Enviar</button>
-            </div>
+        <div class="mini-popup">
+            <label for="mensaje-contacto" class="sr-only">Mensaje de contacto</label>
+            <textarea
+                id="mensaje-contacto"
+                placeholder="Escribe tu mensaje"></textarea>
+
+            <button id="mini-send">Enviar</button>
         </div>
 
     </body>

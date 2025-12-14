@@ -1205,6 +1205,7 @@
                 max-width: 1400px;
                 margin: 20px auto;
                 padding: 0 20px;
+                box-sizing: border-box;
             }
 
             /* col-izq-com */
@@ -1370,8 +1371,9 @@
             .pack-estatico img {
                 width: 100%;
                 border-radius: 8px;
-                height: 220px;
+                height: auto;
                 object-fit: cover;
+                aspect-ratio: 4 / 3;
             }
 
 
@@ -1584,6 +1586,49 @@
 
             */
 
+            @media (max-width: 560px) {
+                /* Corregir margen desequilibrado en comunidad.html y otras páginas */
+                body {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                header {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                footer {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                .contenedor-comunidad {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                }
+
+                .search-bar,
+                .nuevas_aventuras,
+                .carousel-resenias,
+                .buscador-container {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+            }
 
             @media (max-width: 992px) {
 
@@ -1605,6 +1650,17 @@
                     padding: 12px;
                     gap: 10px;
                     position: relative;
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                }
+
+                footer {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
                 }
 
                 header img {
@@ -1652,6 +1708,9 @@
                     grid-template-columns: 100%;
                     width: 100%;
                     box-sizing: border-box;
+                    padding: 12px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
                 .contenedor-principal {
@@ -1717,6 +1776,42 @@
                         grid-template-columns: 280px 1fr;
                         gap: 20px;
                         padding: 0 16px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        box-sizing: border-box;
+                }
+
+                /* Centrar search-bar, nuevas aventuras y carousel reseñas */
+                .search-bar {
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+
+                .nuevas_aventuras {
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+
+                .carousel-resenias {
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+
+                .buscador-container {
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                    padding-left: 12px;
+                    padding-right: 12px;
                 }
 
                 /* PERFIL */
@@ -1932,7 +2027,59 @@
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
-                    padding: 0;
+                    padding: 0 12px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-sizing: border-box;
+                }
+
+                /* Centrar search-bar, nuevas aventuras y carousel reseñas en 480px */
+                .search-bar {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                .nuevas_aventuras {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                .carousel-resenias {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                .buscador-container {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                header {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
+                }
+
+                footer {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    box-sizing: border-box;
                 }
 
                 /* PERFIL */
@@ -2122,6 +2269,25 @@
                     width: 70%;
                     margin: 0 auto;
                     font-size: 0.8em;
+                }
+
+                .pack-estatico {
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 16px;
+                    box-sizing: border-box;
+                }
+
+                .pack-estatico img {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 4 / 3;
+                    object-fit: cover;
+                }
+
+                .compra-experiencia {
+                    padding: 12px;
+                    box-sizing: border-box;
                 }
 
                 .pack-card,

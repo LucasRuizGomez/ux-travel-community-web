@@ -13,6 +13,9 @@
                 width: 100%;
                 padding-top: 0.8rem;
                 padding-bottom: 0.8rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                box-sizing: border-box;
             }
 
             .nombre-sitio {
@@ -21,7 +24,7 @@
                 color: #285226;
                 flex: 1;
                 justify-content: flex-start;
-                margin-left: 1rem;
+                margin-left: 0;
             }
 
             .menu-principal a {
@@ -52,9 +55,36 @@
                 justify-content: flex-end;
             }
 
+            /* Asegurar alineación vertical perfecta de todos los elementos en .derecha */
+            .derecha img,
+            .derecha .toggle-imagenes,
+            .derecha .idioma-form {
+                display: flex;
+                align-items: center;
+                vertical-align: middle;
+            }
+
+            .derecha img {
+                display: block;
+            }
+
+            .idioma-form {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .idioma-form label {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+            }
+
             .idioma-form select {
                 cursor: pointer;
-                margin-right: 1rem;
+                margin-right: 0;
+                display: flex;
+                align-items: center;
             }
 
             /* MAIN */
@@ -796,6 +826,9 @@
                 border-radius: 1rem;
                 padding-top: 1.2rem;
                 padding-bottom: 1.2rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                box-sizing: border-box;
             }
 
             .footer-copy,
@@ -807,10 +840,10 @@
 
             .footer-copy {
                 justify-content: flex-start;
-                margin-left: 1rem;
+                margin-left: 0;
                 color: #000000;
                 font-size: 0.75em;
-                margin-right: 1rem;
+                margin-right: 0;
             }
 
             .footer-enlaces {
@@ -1376,7 +1409,6 @@
             }
 
             .toggle-imagenes{
-
                 outline: 0;
                 border: 1px solid rgb(255, 255, 255);
                 background: #285226;
@@ -1386,9 +1418,11 @@
                 text-decoration: none;
                 font-size: 0.95em;
                 transition: background 0.2s;
-                margin-top: -5px;
-
-
+                margin-top: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
             }
    
             
@@ -1554,7 +1588,7 @@
             @media (max-width: 992px) {
 
                 /* --- INICIO DE LA LÓGICA DEL HEADER --- */
-                /* Aquí activamos el layout "móvil" del header */
+                /* Layout "móvil" del header pero SIN hamburguesa todavía */
 
                 body {
                     padding-right: 12px;
@@ -1570,6 +1604,7 @@
                     text-align: center;
                     padding: 12px;
                     gap: 10px;
+                    position: relative;
                 }
 
                 header img {
@@ -1578,9 +1613,18 @@
                     margin-bottom: 4px;
                 }
 
-                /* Ocultamos el menú de texto de escritorio */
+                /* El menú de texto sigue visible en 992px - solo se oculta en 480px */
                 .menu-principal {
-                    display: none;
+                    display: flex;
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .menu-principal a {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    font-size: 0.9em;
                 }
 
                 /* Hacemos visible la sección derecha (logo/select) */
@@ -1590,54 +1634,14 @@
                     gap: 10px;
                 }
 
-                /* Hacemos visible el icono de hamburguesa */
+                /* El hamburguesa sigue oculto en 992px - solo se muestra en 480px */
                 .icono-hamburger {
-                    display: block;
-                    cursor: pointer;
-                    padding: 15px;
-                    margin-left: auto;
-                    /* Empuja el icono y .derecha al final */
-                }
-
-                .icono-hamburger .raya {
-                    width: 30px;
-                    height: 3px;
-                    background-color: #333;
-                    margin: 6px 0;
-                    transition: 0.3s;
+                    display: none;
                 }
 
                 /* Permitimos que el título se parta si es largo */
                 .nombre-sitio {
                     white-space: normal;
-                }
-
-                /* Definición del menú desplegable */
-                .menu-principal {
-                    /* display: none; ya está arriba */
-                    width: 100%;
-                    position: absolute;
-                    top: 100%;
-                    /* Se ancla debajo del header */
-                    left: 0;
-                    background-color: white;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    z-index: 1000;
-                    /* Se asegura de que esté por encima */
-                }
-
-                .menu-principal a {
-                    display: block;
-                    width: 100%;
-                    text-align: center;
-                    border-bottom: 1px solid #f0f0f0;
-                    padding: 15px;
-                    box-sizing: border-box;
-                }
-
-                /* La magia que muestra el menú */
-                #menu-toggle:checked~.menu-principal {
-                    display: block;
                 }
 
                 /* --- FIN DE LA LÓGICA DEL HEADER --- */
@@ -1840,6 +1844,84 @@
 
             @media (max-width: 480px) {
 
+                /* --- INICIO DE LA LÓGICA DEL MENÚ HAMBURGUESA --- */
+                /* Aquí activamos el menú hamburguesa solo en pantallas de 480px o menores */
+
+                header {
+                    position: relative;
+                }
+
+                /* Ocultamos el menú de texto en 480px - pero con animación y empuja contenido */
+                .menu-principal {
+                    display: none;
+                    width: 100%;
+                    position: relative;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    flex-direction: column;
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+                    padding: 0;
+                    margin-top: 10px;
+                    order: 6;
+                }
+
+                /* Hacemos visible el icono de hamburguesa en 480px */
+                .icono-hamburger {
+                    display: block;
+                    cursor: pointer;
+                    padding: 10px;
+                    margin: 0 auto;
+                    order: 2;
+                }
+
+                /* El checkbox sigue oculto visualmente pero funciona */
+                #menu-toggle {
+                    position: absolute;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+                .icono-hamburger .raya {
+                    width: 30px;
+                    height: 3px;
+                    background-color: #333;
+                    margin: 6px 0;
+                    transition: 0.3s;
+                    display: block;
+                }
+
+                .menu-principal a {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    border-bottom: 1px solid #f0f0f0;
+                    padding: 15px;
+                    box-sizing: border-box;
+                    opacity: 0;
+                    transform: translateY(-5px);
+                    transition: opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s;
+                }
+
+                /* La magia que muestra el menú cuando se hace click con animación */
+                #menu-toggle:checked ~ .menu-principal {
+                    display: flex;
+                    max-height: 500px;
+                    opacity: 1;
+                    padding: 10px 0;
+                    margin-top: 10px;
+                }
+
+                /* Animación suave para los enlaces cuando el menú se muestra */
+                #menu-toggle:checked ~ .menu-principal a {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                /* --- FIN DE LA LÓGICA DEL MENÚ HAMBURGUESA --- */
+
                 /* El layout del HEADER ya está heredado de 992px. */
                 /* Aquí solo van los AJUSTES FINOS para pantallas pequeñas. */
 
@@ -1883,48 +1965,80 @@
 
 
                 header {
+                    flex-direction: column;
                     flex-wrap: wrap;
                     row-gap: 10px;
+                    justify-content: center;
+                    align-items: center;
                 }
 
-                .derecha {
-                    width: 100%;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    gap: 8px;
-                }
-
-                .toggle-imagenes {
+                /* Nombre del sitio centrado arriba */
+                .nombre-sitio {
+                    order: 1;
                     width: 100%;
                     text-align: center;
-                    margin-top: 4px;
+                    font-size: 1.2em;
+                    margin-left: 0;
+                    margin-bottom: 5px;
                 }
 
-                .nombre-sitio {
-                        width: 100%;
-                        text-align: center;
-                        font-size: 1.2em;
-                        margin-left: 0;
-                    }
-
-
-
-                header img {
-                    width: 40px;
-                    height: 40px;
+                /* Logo centrado - extraerlo visualmente de .derecha */
+                .derecha {
+                    order: 2;
+                    width: 100%;
+                    display: contents; /* Permite que los hijos participen en el flex del header */
                 }
 
-                header select {
-                    max-width: 3rem;
+                /* Logo centrado */
+                .derecha img {
+                    width: 50px;
+                    height: 50px;
+                    order: 2;
+                    display: block;
+                    margin: 0 auto 5px auto;
+                }
+
+                /* Botón "Modo sin imágenes" centrado */
+                .toggle-imagenes {
+                    order: 3;
+                    display: block !important;
                     width: auto;
-                    font-size: 0.8em;
-                    /* Reducimos la fuente para que quepa */
-                    padding: 4px;
+                    text-align: center;
+                    margin: 0 auto 5px auto;
+                    padding: 8px 16px;
+                    font-size: 0.9em;
                 }
 
-                .nombre-sitio {
-                    font-size: 1.1em;
-                    /* white-space: normal; ya está heredado de 992px */
+                /* Formulario de idioma centrado - justo encima del hamburguesa */
+                .idioma-form {
+                    order: 4;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5px;
+                    width: 100%;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                /* Menú hamburguesa centrado debajo del selector de idioma */
+                .icono-hamburger {
+                    order: 5;
+                    margin: 0 auto;
+                    padding: 10px;
+                    margin-bottom: 5px;
+                }
+
+                .idioma-form label {
+                    text-align: center;
+                    font-size: 0.9em;
+                }
+
+                .idioma-form select {
+                    font-size: 0.9em;
+                    padding: 6px 12px;
+                    text-align: center;
+                    margin: 0 auto;
                 }
 
                 /* --- TUS REGLAS DE LAYOUT ORIGINALES PARA 480px --- */
@@ -2118,7 +2232,8 @@
                 }
 
                 /* MAPA → LISTA */
-                ext-align: center;
+                .worldmap {
+                    text-align: center;
                 }
 
                 /* Botones grandes y táctiles */

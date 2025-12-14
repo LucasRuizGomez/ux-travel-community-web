@@ -1556,14 +1556,26 @@
                 /* --- INICIO DE LA LÓGICA DEL HEADER --- */
                 /* Aquí activamos el layout "móvil" del header */
 
-                header {
-                    width: 100%;
+                body {
+                    padding-right: 12px;
+                    padding-left: 12px;
                     box-sizing: border-box;
-                    display: flex;
+                    overflow-x: hidden;
+                }
+
+
+                header {
+                    flex-direction: column;
                     align-items: center;
-                    padding: 10px;
-                    position: relative;
-                    /* Importante para el menú desplegable */
+                    text-align: center;
+                    padding: 12px;
+                    gap: 10px;
+                }
+
+                header img {
+                    width: 48px;
+                    height: 48px;
+                    margin-bottom: 4px;
                 }
 
                 /* Ocultamos el menú de texto de escritorio */
@@ -1694,7 +1706,137 @@
                     width: 100%;
                     margin: 5px 0;
                 }
+
+
+                .contenedor-comunidad {
+                        display: grid;
+                        grid-template-columns: 280px 1fr;
+                        gap: 20px;
+                        padding: 0 16px;
+                }
+
+                /* PERFIL */
+                .col-izq-comunidad {
+                    position: static;     /* quitamos sticky */
+                    width: 100%;
+                }
+
+                /* POSTS */
+                .col-centro {
+                    width: 100%;
+                }
+
+                /* CONSEJOS ABAJO */
+                .col-der-comunidad {
+                    grid-column: 1 / -1;  /* ocupa todo el ancho */
+                    position: static;
+                    margin-top: 10px;
+                }
+
+                /* CAROUSEL CONSEJOS */
+                .carousel-vertical {
+                    width: 100%;
+                    height: auto;
+                    max-height: none;
+                }
+
+                .carousel-inner {
+                    transform: none !important;
+                }
+
+                .slide {
+                    font-size: 1em;
+                }
+
+
+
+
+            /* Banner */
+                .banner-paises {
+                    height: 220px;
+                    margin-bottom: 24px;
+                }
+
+                .banner-contenido-paises {
+                    padding: 1.5rem;
+                    font-size: 0.95em;
+                }
+
+                /* Destinos recomendados */
+                .destinos {
+                    padding: 0 16px;
+                }
+
+                /* MAPA → COLUMNA */
+                .worldmap {
+                    gap: 40px;
+                    padding: 40px 0;
+                }
+
+                .continent {
+                    width: 85%;
+                    max-width: 500px;
+                    padding: 20px;
+                    font-size: 1em;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             @media (max-width: 480px) {
 
@@ -1702,6 +1844,71 @@
                 /* Aquí solo van los AJUSTES FINOS para pantallas pequeñas. */
 
                 /* 3. Ajustamos el tamaño del logo y select para que quepan */
+
+
+                .contenedor-comunidad {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 0;
+                }
+
+                /* PERFIL */
+                .col-izq-comunidad {
+                    position: static;
+                    width: 100%;
+                }
+
+                /* CAROUSEL DE CONSEJOS */
+                .col-der-comunidad {
+                    position: static;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                .carousel-vertical {
+                    width: 100%;
+                    height: auto;
+                    max-height: none;
+                }
+
+                .carousel-inner {
+                    transform: none !important;
+                }
+
+                .slide {
+                    font-size: 0.95em;
+                }
+
+
+
+                header {
+                    flex-wrap: wrap;
+                    row-gap: 10px;
+                }
+
+                .derecha {
+                    width: 100%;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                }
+
+                .toggle-imagenes {
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 4px;
+                }
+
+                .nombre-sitio {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 1.2em;
+                        margin-left: 0;
+                    }
+
+
+
                 header img {
                     width: 40px;
                     height: 40px;
@@ -1853,5 +2060,94 @@
                 .mini-cal.v2 .mc-head {
                     gap: .25rem;
                 }
+
+
+                .search-bar {
+                    flex-direction: column;
+                    gap: 12px;
+                    padding: 12px;
+                    width: 100%;
+                    max-width: 100%;
+                    margin: 0 auto;
+                }
+
+                .field {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .field input {
+                    width: 100%;
+                }
+
+                .buscar {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 1em;
+                    box-sizing: border-box;
+                    margin: 0;
+                }
+
+
+
+
+
+
+                            /* Banner */
+                .banner-paises {
+                    height: 180px;
+                    margin-bottom: 20px;
+                }
+
+                .banner-contenido-paises {
+                    padding: 1rem;
+                    font-size: 0.85em;
+                }
+
+                /* Destinos */
+                .destinos {
+                    padding: 0;
+                }
+
+                .destinos-titulo h1 {
+                    font-size: 1.4em;
+                }
+
+                .destinos-titulo p {
+                    font-size: 0.95em;
+                }
+
+                /* MAPA → LISTA */
+                ext-align: center;
+                }
+
+                /* Botones grandes y táctiles */
+                .continent button {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 1em;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             }

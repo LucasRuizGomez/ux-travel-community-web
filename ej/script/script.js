@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //DETECTA QUE CONTINENTE LE DAS CLICK
     window.pick = (continent) => {
         alert("Seleccionaste: " + continent);
+        window.location.href = "pagina_viajes.html";
     };
 
 
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             popup.style.top = rect.bottom + 5 + "px";
 
             popup.style.display = "block";
+
         });
     });
 
@@ -30,16 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!e.target.closest(".field") && !e.target.closest(".popup")) {
             popups.forEach(p => p.style.display = "none");
         }
+        
     });
 
     document.querySelectorAll(".popup .option").forEach(opt => {
-        opt.addEventListener("click", e => {
+        opt.addEventListener("click", () => {
             const popup = opt.closest(".popup");
-            const fieldId = popup.id.replace("-popup", "");
             const field = [...fields].find(f => f.dataset.popup === popup.id);
+
             field.querySelector("input").value = opt.textContent;
 
             popup.style.display = "none";
+
+            
+            if (window.validarBusqueda) window.validarBusqueda();
         });
     });
     
@@ -64,29 +70,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const botonBuscar = document.querySelector(".buscar");
 
-    if(botonBuscar){
+    const camposBusqueda = [
+        document.querySelector("[data-popup='origen-popup'] input"),
+        document.querySelector("[data-popup='destino-popup'] input"),
+        document.querySelector("[data-popup='ida-popup'] input"),
+        document.querySelector("[data-popup='vuelta-popup'] input"),
+        document.querySelector("[data-popup='tipo-popup'] input")
+    ];
+
+    if (botonBuscar) {
+
+        // Estado inicial
+        botonBuscar.disabled = true;
+        botonBuscar.classList.add("btn-deshabilitado");
+
+        // Función global de validación
+        function validarBusqueda() {
+            const todoRelleno = camposBusqueda.every(
+                input => input && input.value.trim() !== ""
+            );
+
+            botonBuscar.disabled = !todoRelleno;
+            botonBuscar.classList.toggle("btn-deshabilitado", !todoRelleno);
+        }
+
+        // Exponemos la función para usarla desde otros sitios
+        window.validarBusqueda = validarBusqueda;
+
+        // Click en buscar
         botonBuscar.addEventListener("click", () => {
-        const origen  = document.querySelector("[data-popup='origen-popup'] input").value;
-        const destino = document.querySelector("[data-popup='destino-popup'] input").value;
-        const ida     = document.querySelector("[data-popup='ida-popup'] input").value;
-        const vuelta  = document.querySelector("[data-popup='vuelta-popup'] input").value;
-        const tipo    = document.querySelector("[data-popup='tipo-popup'] input").value;
+            const origen  = camposBusqueda[0].value;
+            const destino = camposBusqueda[1].value;
+            const ida     = camposBusqueda[2].value;
+            const vuelta  = camposBusqueda[3].value;
+            const tipo    = camposBusqueda[4].value;
 
-        sessionStorage.setItem('busqueda', JSON.stringify({
-            origen,
-            destino,
-            ida,
-            vuelta,
-            tipo
-        }));
+            if (!origen || !destino || !ida || !vuelta || !tipo) {
+                alert("Por favor, rellena todos los campos antes de buscar.");
+                return;
+            }
 
-        // Redirigimos al formulario de compra
-        window.location.href = 'formulario_compra.html';
+            sessionStorage.setItem("busqueda", JSON.stringify({
+                origen,
+                destino,
+                ida,
+                vuelta,
+                tipo
+            }));
 
-        console.log({ origen, destino, ida, vuelta, tipo });
-    });
-
-
+            window.location.href = "formulario_compra.html";
+        });
     }
 
     //lo almacena
@@ -796,12 +829,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    //boton visitar
-    document.querySelectorAll('.btn-visitar').forEach(btn => {
-        btn.addEventListener('click', () => {
-            window.location.href = 'pagina_viajes.html';
-        });
-    });
+ 
 
 
     const datosBusqueda = sessionStorage.getItem('busqueda');
@@ -1198,6 +1226,18 @@ document.addEventListener('DOMContentLoaded', function () {
             el.placeholder = i18n[idioma][key];
         }
     });
+
+    const precioElemento = document.getElementById("precio-aleatorio");
+
+    if (precioElemento) {
+        const precioMin = 200;
+        const precioMax = 1000;
+
+        const precioAleatorio =
+            Math.floor(Math.random() * (precioMax - precioMin + 1)) + precioMin;
+
+        precioElemento.textContent = `${precioAleatorio} €`;
+    }
 
 
 });

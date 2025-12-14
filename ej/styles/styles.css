@@ -256,7 +256,9 @@
             }
 
             .galeria-experiencias {
-                margin: 40px 0;
+                max-width: 1200px;   
+                margin: 40px auto;   
+                padding: 0 24px;     
             }
 
             .galeria-experiencias h2 {
@@ -1051,6 +1053,7 @@
 
             #japonfoto {
                 background-image: url("../images/japon.jpeg");
+                margin-top: 10px;
                 height: 240px;
                 border-radius: 12px;
                 background-size: cover;
@@ -1059,6 +1062,7 @@
 
             #cuzcofoto {
                 background-image: url("../images/cuzco.jpeg");
+                margin-top: 10px;
                 height: 240px;
                 border-radius: 12px;
                 background-size: cover;
@@ -1332,9 +1336,37 @@
             }
 
 
+            .btn-visitar{
 
 
+                background: #285226;
+                color: #fff;
+                padding: 6px 14px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 0.95em;
+                transition: background 0.2s;
+                margin-top: -5px;
 
+
+            }
+
+            .toggle-imagenes{
+
+                outline: 0;
+                border: 1px solid rgb(255, 255, 255);
+                background: #285226;
+                color: #fff;
+                padding: 6px 14px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 0.95em;
+                transition: background 0.2s;
+                margin-top: -5px;
+
+
+            }
+   
 
 
 

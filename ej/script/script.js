@@ -119,8 +119,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Exponemos la función para usarla desde otros sitios
         window.validarBusqueda = validarBusqueda;
 
-        // Click en buscar
-        botonBuscar.addEventListener("click", () => {
+        //Comprobamos que este iniciada la sesion
+
+        botonBuscar.addEventListener("click", (e) => {
+
+            const usuarioLogueado = localStorage.getItem("usuarioLogueado");
+
+            if (!usuarioLogueado) {
+                e.preventDefault();
+                window.location.href = "a.html";
+                return;
+            }
+
             const origen  = camposBusqueda[0].value;
             const destino = camposBusqueda[1].value;
             const ida     = camposBusqueda[2].value;
@@ -1467,16 +1477,82 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    //Comprobador para redirigir al usuario
+
+    (function () {
+
+        
+        if (!window.location.pathname.includes("otros_rincones")) return;
+
+        const enlaceComunidad = document.querySelector('a[href="comunidad.html"]');
+        if (!enlaceComunidad) return;
+
+        enlaceComunidad.addEventListener("click", function (e) {
+            const usuarioLogueado = localStorage.getItem("usuarioLogueado");
+
+            if (!usuarioLogueado) {
+                e.preventDefault();
+                
+                window.location.href = "a.html"; 
+               
+            }
+        });
+
+    })();
 
 
 
 
+    (function () {
+
+        
+        if (!window.location.pathname.includes("otros_rincones")) return;
+
+        const usuarioLogueado = localStorage.getItem("usuarioLogueado");
+
+        
+        const botonesProtegidos = document.querySelectorAll(
+            'a, button'
+        );
+
+        botonesProtegidos.forEach(boton => {
+            const texto = boton.textContent.trim().toLowerCase();
+
+            const esBotonProtegido =
+                texto.includes("ver todos") ||
+                texto.includes("ver viajes") ||
+                texto.includes("visitar");
+
+            if (!esBotonProtegido) return;
+
+            boton.addEventListener("click", function (e) {
+                if (!localStorage.getItem("usuarioLogueado")) {
+                    e.preventDefault();
+                    window.location.href = "a.html"; 
+                }
+            });
+        });
+
+    })();
 
 
+    (function () {
 
+        if (!window.location.pathname.includes("pagina_viajes_personalizados")) return;
 
+        const enlaceComunidad = document.querySelector('a[href="comunidad.html"]');
+        if (!enlaceComunidad) return;
 
+        enlaceComunidad.addEventListener("click", function (e) {
+            const usuarioLogueado = localStorage.getItem("usuarioLogueado");
 
+            if (!usuarioLogueado) {
+                e.preventDefault();
+                window.location.href = "a.html"; 
+            }
+        });
+
+    })();
 
 
 

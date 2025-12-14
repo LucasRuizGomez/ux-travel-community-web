@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mochileros por el mundo</title>
+        <link rel="icon" type="image/x-icon" href="images/mochilachati.png">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter">
+    </head>
+    <body>
+        <header>
+            <div class="nombre-sitio">Mochileros por el mundo</div>
+            <input type="checkbox" id="menu-toggle">
+    
+            <label for="menu-toggle" class="icono-hamburger" aria-label="Abrir menú de navegación">
+                <span class="raya"></span>
+                <span class="raya"></span>
+                <span class="raya"></span>
+            </label>
+                
+            <nav class="menu-principal">
+                <a href="home.html">Inicio</a>
+                <a href="comunidad.html">Comunidad</a>
+                <a href="otros_rincones.html">Otros Rincones</a>
+            </nav>
+            
+            <div class="derecha">
+                <img src="images/mochilachati.png" alt="Logo" width="60"
+                    height="60">
+
+                <button id="toggle-images" class="toggle-imagenes">Modo sin imágenes</button>
+                <form class="idioma-form">
+                    <label for="idioma">Idioma</label>
+                    <select id="idioma" name="idioma">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </form>
+            </div>
+        </header>
+
+        <section class="galeria-experiencias" id="pv-personalizados">
+            <h2 id="pv-titulo"></h2>
+            <p id="pv-subtitulo"></p>
+
+            <div class="acciones" style="margin: 12px 0;">
+                <a href="otros_rincones.html" class="ver-mas-btn" id="pv-volver" style="display:none;">← Volver a países</a>
+            </div>
+
+            <div class="grid-experiencias" id="pv-grid">
+                <!-- JS pinta tarjetas aquí -->
+            </div>
+        </section>
+
+        <div id="modal-compra" class="modal" style="display:none;">
+            <div class="modal-content modal-compra">
+                <span class="close" id="cerrarCompra">&times;</span>
+
+                <div class="compra-header">
+                    <img id="compra-foto-usuario" alt="Usuario">
+                    <div>
+                        <h3 id="compra-nombre-usuario"></h3>
+                        <p id="compra-ciudad"></p>
+                    </div>
+                </div>
+
+                <img id="compra-imagen-ciudad" class="compra-img" alt="Ciudad">
+
+                <p id="compra-descripcion"></p>
+
+                <form id="form-compra">
+                    <label>
+                        Número de personas
+                        <input type="number" min="1" value="1" required>
+                    </label>
+
+                    <label>
+                        Fecha de salida
+                        <input type="date" required>
+                    </label>
+
+                    <label>
+                        Comentarios adicionales
+                        <textarea rows="3"></textarea>
+                    </label>
+
+                    <button type="submit" class="ver-mas-btn">
+                        Confirmar reserva
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+<!-- Alternamos entre tres y cuatro para que quede visualemnte estético -->
+
+       
+
+        
+        <footer>
+            <div class="footer-copy">
+                &copy; 2025 Mochileros por el mundo. Todos los derechos
+                reservados.
+            </div>
+            <div class="footer-enlaces">
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-redes">
+                <a href="#" title="Instagram" aria-label="Instagram">
+                    <img src="images/instagram.svg" alt="Instagram"
+                        class="icono-red">
+                </a>
+                <a href="#" title="TikTok" aria-label="TikTok">
+                    <img src="images/tiktok.svg" alt="Tiktok" class="icono-red">
+                </a>
+                <a href="#" title="YouTube" aria-label="YouTube">
+                    <img src="images/youtube.svg" alt="Youtube"
+                        class="icono-red">
+                </a>
+            </div>
+            <form class="footer-newsletter" action="#" method="post">
+                <label for="newsletter-email" class="suscribete">Suscríbete a la
+                    newsletter</label>
+                <input type="email" id="newsletter-email" name="email"
+                    placeholder="Tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </footer>
+        <div id="errorModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <p></p>
+                <!-- Este texto será reemplazado -->
+            </div>
+        </div>
+
+        <script src="script/script.js"></script>
+
+        
+
+
+    </body>
+</html>

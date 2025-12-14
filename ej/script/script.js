@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //DETECTA QUE CONTINENTE LE DAS CLICK
     window.pick = (continent) => {
         alert("Seleccionaste: " + continent);
-        window.location.href = "pagina_viajes.html";
+        window.location.href = `pagina_viajes_personalizados.html?continent=${encodeURIComponent(continent)}`;
     };
 
 
@@ -53,14 +53,36 @@ document.addEventListener('DOMContentLoaded', function () {
     //Para que las fechas se pongan bien
 
     document.querySelectorAll(".popup input[type='date']").forEach(dateInput => {
-        dateInput.addEventListener("change", e => {
+        dateInput.addEventListener("change", () => {
             const popup = dateInput.closest(".popup");
             const field = [...fields].find(f => f.dataset.popup === popup.id);
-            
-            // Ponemos la fecha seleccionada dentro del campo visible
-            field.querySelector("input").value = dateInput.value;
+            const inputVisible = field.querySelector("input");
 
+            inputVisible.value = dateInput.value;
             popup.style.display = "none";
+
+
+            const idaInput = document.querySelector("[data-popup='ida-popup'] input");
+            const vueltaInput = document.querySelector("[data-popup='vuelta-popup'] input");
+
+            if (idaInput.value && vueltaInput.value) {
+                const fechaIda = new Date(idaInput.value);
+                const fechaVuelta = new Date(vueltaInput.value);
+
+                if (fechaVuelta < fechaIda) {
+                    alert("La fecha de vuelta no puede ser anterior a la fecha de ida.");
+
+                    
+                    vueltaInput.value = "";
+                    document.querySelector("#vuelta-date").value = "";
+
+                    if (window.validarBusqueda) window.validarBusqueda();
+                    return;
+                }
+            }
+
+           
+            if (window.validarBusqueda) window.validarBusqueda();
         });
     });
 
@@ -1238,6 +1260,228 @@ document.addEventListener('DOMContentLoaded', function () {
 
         precioElemento.textContent = `${precioAleatorio} €`;
     }
+
+
+
+
+
+
+    (function () {
+    const root = document.getElementById("pv-personalizados");
+    if (!root) return; 
+
+    const titulo = document.getElementById("pv-titulo");
+    const subtitulo = document.getElementById("pv-subtitulo");
+    const grid = document.getElementById("pv-grid");
+    const btnVolver = document.getElementById("pv-volver");
+
+    const params = new URLSearchParams(window.location.search);
+    const continenteSeleccionado = params.get("continent");
+
+    if (!continenteSeleccionado) {
+        titulo.textContent = "Elige un continente";
+        subtitulo.textContent = "Vuelve a 'Otros Rincones' y selecciona uno.";
+        return;
+    }
+
+    titulo.textContent = `Explora ${continenteSeleccionado}`;
+    subtitulo.textContent = "Primero elige un país.";
+
+    let dataCache = null;
+    let continenteData = null;
+
+    function limpiarGrid() {
+        grid.innerHTML = "";
+    }
+
+    function crearTarjeta({ img, alt, titulo, texto, cta }) {
+        const card = document.createElement("div");
+        card.className = "tarjeta-experiencia";
+        card.innerHTML = `
+        <img src="${img}" alt="${alt}">
+        <h3>${titulo}</h3>
+        ${texto ? `<p>${texto}</p>` : ""}
+        <div class="acciones">
+            <a href="#" class="ver-mas-btn">${cta}</a>
+        </div>
+        `;
+        return card;
+    }
+
+    function renderPaises() {
+        limpiarGrid();
+        btnVolver.style.display = "none";
+        subtitulo.textContent = "Primero elige un país.";
+
+        continenteData.countries.forEach((country) => {
+        // imagen “representativa” = primera ciudad (si existe)
+        const primeraCiudad = country.cities?.[0];
+        const img = primeraCiudad?.image?.url || "images/mochilachati.png";
+        const alt = primeraCiudad?.image?.alt || country.name;
+
+        const card = crearTarjeta({
+            img,
+            alt,
+            titulo: country.name,
+            texto: `${country.cities.length} ciudad(es) disponible(s)`,
+            cta: "Ver ciudades",
+        });
+
+        card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+            renderCiudades(country);
+        });
+
+        grid.appendChild(card);
+        });
+    }
+
+    function renderCiudades(country) {
+        limpiarGrid();
+        btnVolver.style.display = "inline-block";
+        subtitulo.textContent = `Ciudades en ${country.name}`;
+
+        btnVolver.onclick = (e) => {
+        e.preventDefault();
+        renderPaises();
+        };
+
+        country.cities.forEach((city) => {
+        const card = crearTarjeta({
+            img: city.image.url,
+            alt: city.image.alt,
+            titulo: city.name,
+            texto: city.description,
+            cta: "Más detalles",
+        });
+
+        // Si quieres, aquí podrías guardar la ciudad y abrir una página detalle,
+        // pero NO lo hago porque pediste 1 sola página.
+        card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const usuarioLogueado = localStorage.getItem("usuarioLogueado");
+
+            if (!usuarioLogueado) {
+                mostrarNotificacion("Debes registrarte o iniciar sesión");
+                return;
+            }
+
+            abrirModalCompra(city);
+        });
+
+        grid.appendChild(card);
+        });
+    }
+
+    function abrirModalCompra(city) {
+        const modal = document.getElementById("modal-compra");
+
+        // Usuario logueado
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado")) || {
+            nombre: "Usuario",
+            foto: "images/mochilachati.png"
+        };
+
+        document.getElementById("compra-foto-usuario").src = usuario.foto;
+        document.getElementById("compra-nombre-usuario").textContent = usuario.nombre;
+
+        document.getElementById("compra-ciudad").textContent = city.name;
+        document.getElementById("compra-imagen-ciudad").src = city.image.url;
+        document.getElementById("compra-imagen-ciudad").alt = city.image.alt;
+        document.getElementById("compra-descripcion").textContent = city.description;
+
+        modal.style.display = "block";
+    }
+
+    const cerrarCompra = document.getElementById("cerrarCompra");
+    if (cerrarCompra) {
+        cerrarCompra.addEventListener("click", () => {
+            document.getElementById("modal-compra").style.display = "none";
+        });
+    }
+
+    const formCompra = document.getElementById("form-compra");
+
+    if (formCompra) {
+        formCompra.addEventListener("submit", (e) => {
+            e.preventDefault(); 
+
+            // Cerramos el modal
+            const modal = document.getElementById("modal-compra");
+            modal.style.display = "none";
+
+            // Mostramos notificación
+            mostrarNotificacion("Reserva confirmada 🎉");
+            
+            // (opcional) resetear formulario
+            formCompra.reset();
+        });
+    }
+
+    function mostrarNotificacion(texto) {
+        const noti = document.createElement("div");
+        noti.className = "notificacion-reserva";
+        noti.textContent = texto;
+
+        document.body.appendChild(noti);
+
+        // animación entrada
+        setTimeout(() => noti.classList.add("show"), 10);
+
+        // desaparición automática
+        setTimeout(() => {
+            noti.classList.remove("show");
+            setTimeout(() => noti.remove(), 300);
+        }, 3000);
+    }
+
+
+
+
+    fetch("ciudades-del-mundo.json")
+        .then((r) => r.json())
+        .then((data) => {
+        dataCache = data;
+
+        continenteData = dataCache.continents.find(
+            (c) => c.name === continenteSeleccionado
+        );
+
+        if (!continenteData) {
+            titulo.textContent = "Continente no encontrado";
+            subtitulo.textContent = "Revisa el nombre enviado en la URL.";
+            return;
+        }
+
+        renderPaises();
+        })
+        .catch((err) => {
+        console.error("Error cargando JSON:", err);
+        titulo.textContent = "Error cargando destinos";
+        subtitulo.textContent =
+            "Asegúrate de abrir el proyecto con Live Server / servidor local.";
+        });
+    })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

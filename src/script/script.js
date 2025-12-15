@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!e.target.closest(".field") && !e.target.closest(".popup")) {
             popups.forEach(p => p.style.display = "none");
         }
-        
+
     });
 
     document.querySelectorAll(".popup .option").forEach(opt => {
@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             popup.style.display = "none";
 
-            
+
             if (window.validarBusqueda) window.validarBusqueda();
         });
     });
-    
+
 
     //Para que las fechas se pongan bien
 
@@ -57,6 +57,23 @@ document.addEventListener('DOMContentLoaded', function () {
             const popup = dateInput.closest(".popup");
             const field = [...fields].find(f => f.dataset.popup === popup.id);
             const inputVisible = field.querySelector("input");
+
+            // Validar que la fecha de ida no sea anterior a hoy
+            if (popup.id === "ida-popup") {
+                const fechaSeleccionada = dateInput.value;
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const fechaActual = `${year}-${month}-${day}`;
+
+                if (fechaSeleccionada && fechaSeleccionada < fechaActual) {
+                    alert("No puedes elegir una fecha anterior a hoy.");
+                    dateInput.value = ""; // Limpiar el input oculto
+                    /* inputVisible.value se queda como estaba o vacío */
+                    return; // Salir de la función para no actualizar nada más
+                }
+            }
 
             inputVisible.value = dateInput.value;
             popup.style.display = "none";
@@ -72,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (fechaVuelta < fechaIda) {
                     alert("La fecha de vuelta no puede ser anterior a la fecha de ida.");
 
-                    
+
                     vueltaInput.value = "";
                     document.querySelector("#vuelta-date").value = "";
 
@@ -81,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-           
+
             if (window.validarBusqueda) window.validarBusqueda();
         });
     });
@@ -129,11 +146,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const origen  = camposBusqueda[0].value;
+            const origen = camposBusqueda[0].value;
             const destino = camposBusqueda[1].value;
-            const ida     = camposBusqueda[2].value;
-            const vuelta  = camposBusqueda[3].value;
-            const tipo    = camposBusqueda[4].value;
+            const ida = camposBusqueda[2].value;
+            const vuelta = camposBusqueda[3].value;
+            const tipo = camposBusqueda[4].value;
 
             if (!origen || !destino || !ida || !vuelta || !tipo) {
                 alert("Por favor, rellena todos los campos antes de buscar.");
@@ -154,14 +171,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //lo almacena
 
-    
 
 
-   
 
- 
- 
-    
+
+
+
+
+
 
 
 
@@ -247,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        
+
         function gestionarProcesoDeCompra() {
 
 
@@ -704,7 +721,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-     // --- PERFIL: nombre y foto en perfil.html ---
+    // --- PERFIL: nombre y foto en perfil.html ---
     if (usuarioLogueado) {
         const nombrePerfil = document.getElementById('nombre-usuario-perfil');
         if (nombrePerfil) nombrePerfil.textContent = usuarioLogueado.nombre;
@@ -723,7 +740,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // POPUP para contactar
 
-    
+
     const miniPopup = document.querySelector(".mini-popup");
     const miniClose = document.getElementById("mini-close");
     const miniSend = document.getElementById("mini-send");
@@ -816,7 +833,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// --- PERFIL: pintar historial de favoritos en perfil.html ---
+    // --- PERFIL: pintar historial de favoritos en perfil.html ---
     const contenedorFavoritos = document.getElementById('lista-favoritos');
 
     if (contenedorFavoritos) {
@@ -848,7 +865,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
- 
+
 
 
     const datosBusqueda = sessionStorage.getItem('busqueda');
@@ -951,24 +968,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- INTERNACIONALIZACIÓN HOME ---
     const i18n = {
         es: {
-            
+
             menu_home: "Inicio",
             menu_comunidad: "Comunidad",
             menu_rincones: "Otros Rincones",
             menu_language: "Idioma",
 
-            
-            
+
+
             hero_subtitle: "Viajes únicos, experiencias inolvidables y packs a tu medida.",
             buscar_viaje_texto: "¿Estás buscando tu próximo viaje?",
             top_ventas: "¡Estos son nuestros top ventas!",
 
             // Packs
 
-            
-           Amsterdam: "Ámsterdam",
-           ciudad_del_cabo: "Ciudad del Cabo",
-           algeciras: "Algeciras",
+
+            Amsterdam: "Ámsterdam",
+            ciudad_del_cabo: "Ciudad del Cabo",
+            algeciras: "Algeciras",
             getafe: "Getafe",
 
             login_title: "¿Todavía no formas parte de nuestra comunidad?",
@@ -1037,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         },
 
-            
+
 
         en: {
             // Menu
@@ -1047,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', function () {
             menu_language: "Language",
 
             // Banner
-            
+
             hero_subtitle: "Unique trips, unforgettable experiences and tailor-made packages.",
             buscar_viaje_texto: "Are you looking for your next trip?",
             top_ventas: "These are our top sellers!",
@@ -1122,7 +1139,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meetup_2: "Climb Mount Toubkal - 14/12/2025",
             meetup_3: "Atacama Desert adventure - 05/04/2026"
 
-            
+
         },
 
         fr: {
@@ -1133,7 +1150,7 @@ document.addEventListener('DOMContentLoaded', function () {
             menu_language: "Langue",
 
             // Banner
-            
+
             hero_subtitle: "Voyages uniques, expériences inoubliables et offres sur mesure.",
             buscar_viaje_texto: "Vous cherchez votre prochain voyage ?",
             top_ventas: "Voici nos meilleures ventes !",
@@ -1264,37 +1281,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     (function () {
-    const root = document.getElementById("pv-personalizados");
-    if (!root) return; 
+        const root = document.getElementById("pv-personalizados");
+        if (!root) return;
 
-    const titulo = document.getElementById("pv-titulo");
-    const subtitulo = document.getElementById("pv-subtitulo");
-    const grid = document.getElementById("pv-grid");
-    const btnVolver = document.getElementById("pv-volver");
+        const titulo = document.getElementById("pv-titulo");
+        const subtitulo = document.getElementById("pv-subtitulo");
+        const grid = document.getElementById("pv-grid");
+        const btnVolver = document.getElementById("pv-volver");
 
-    const params = new URLSearchParams(window.location.search);
-    const continenteSeleccionado = params.get("continent");
+        const params = new URLSearchParams(window.location.search);
+        const continenteSeleccionado = params.get("continent");
 
-    if (!continenteSeleccionado) {
-        titulo.textContent = "Elige un continente";
-        subtitulo.textContent = "Vuelve a 'Otros Rincones' y selecciona uno.";
-        return;
-    }
+        if (!continenteSeleccionado) {
+            titulo.textContent = "Elige un continente";
+            subtitulo.textContent = "Vuelve a 'Otros Rincones' y selecciona uno.";
+            return;
+        }
 
-    titulo.textContent = `Explora ${continenteSeleccionado}`;
-    subtitulo.textContent = "Primero elige un país.";
+        titulo.textContent = `Explora ${continenteSeleccionado}`;
+        subtitulo.textContent = "Primero elige un país.";
 
-    let dataCache = null;
-    let continenteData = null;
+        let dataCache = null;
+        let continenteData = null;
 
-    function limpiarGrid() {
-        grid.innerHTML = "";
-    }
+        function limpiarGrid() {
+            grid.innerHTML = "";
+        }
 
-    function crearTarjeta({ img, alt, titulo, texto, cta }) {
-        const card = document.createElement("div");
-        card.className = "tarjeta-experiencia";
-        card.innerHTML = `
+        function crearTarjeta({ img, alt, titulo, texto, cta }) {
+            const card = document.createElement("div");
+            card.className = "tarjeta-experiencia";
+            card.innerHTML = `
         <img src="${img}" alt="${alt}">
         <h3>${titulo}</h3>
         ${texto ? `<p>${texto}</p>` : ""}
@@ -1302,163 +1319,163 @@ document.addEventListener('DOMContentLoaded', function () {
             <a href="#" class="ver-mas-btn">${cta}</a>
         </div>
         `;
-        return card;
-    }
-
-    function renderPaises() {
-        limpiarGrid();
-        btnVolver.style.display = "none";
-        subtitulo.textContent = "Primero elige un país.";
-
-        continenteData.countries.forEach((country) => {
-        // imagen “representativa” = primera ciudad (si existe)
-        const primeraCiudad = country.cities?.[0];
-        const img = primeraCiudad?.image?.url || "images/mochilachati.png";
-        const alt = primeraCiudad?.image?.alt || country.name;
-
-        const card = crearTarjeta({
-            img,
-            alt,
-            titulo: country.name,
-            texto: `${country.cities.length} ciudad(es) disponible(s)`,
-            cta: "Ver ciudades",
-        });
-
-        card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
-            e.preventDefault();
-            renderCiudades(country);
-        });
-
-        grid.appendChild(card);
-        });
-    }
-
-    function renderCiudades(country) {
-        limpiarGrid();
-        btnVolver.style.display = "inline-block";
-        subtitulo.textContent = `Ciudades en ${country.name}`;
-
-        btnVolver.onclick = (e) => {
-        e.preventDefault();
-        renderPaises();
-        };
-
-        country.cities.forEach((city) => {
-        const card = crearTarjeta({
-            img: city.image.url,
-            alt: city.image.alt,
-            titulo: city.name,
-            texto: city.description,
-            cta: "Más detalles",
-        });
-
-        // Si quieres, aquí podrías guardar la ciudad y abrir una página detalle,
-        // pero NO lo hago porque pediste 1 sola página.
-        card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
-            e.preventDefault();
-
-            const usuarioLogueado = localStorage.getItem("usuarioLogueado");
-
-            if (!usuarioLogueado) {
-                mostrarNotificacion("Debes registrarte o iniciar sesión");
-                return;
-            }
-
-            abrirModalCompra(city);
-        });
-
-        grid.appendChild(card);
-        });
-    }
-
-    function abrirModalCompra(city) {
-        const modal = document.getElementById("modal-compra");
-
-        // Usuario logueado
-        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado")) || {
-            nombre: "Usuario",
-            foto: "images/mochilachati.png"
-        };
-
-        document.getElementById("compra-foto-usuario").src = usuario.foto;
-        document.getElementById("compra-nombre-usuario").textContent = usuario.nombre;
-
-        document.getElementById("compra-ciudad").textContent = city.name;
-        document.getElementById("compra-imagen-ciudad").src = city.image.url;
-        document.getElementById("compra-imagen-ciudad").alt = city.image.alt;
-        document.getElementById("compra-descripcion").textContent = city.description;
-
-        modal.style.display = "block";
-    }
-
-    const cerrarCompra = document.getElementById("cerrarCompra");
-    if (cerrarCompra) {
-        cerrarCompra.addEventListener("click", () => {
-            document.getElementById("modal-compra").style.display = "none";
-        });
-    }
-
-    const formCompra = document.getElementById("form-compra");
-
-    if (formCompra) {
-        formCompra.addEventListener("submit", (e) => {
-            e.preventDefault(); 
-
-            // Cerramos el modal
-            const modal = document.getElementById("modal-compra");
-            modal.style.display = "none";
-
-            // Mostramos notificación
-            mostrarNotificacion("Reserva confirmada 🎉");
-            
-            // (opcional) resetear formulario
-            formCompra.reset();
-        });
-    }
-
-    function mostrarNotificacion(texto) {
-        const noti = document.createElement("div");
-        noti.className = "notificacion-reserva";
-        noti.textContent = texto;
-
-        document.body.appendChild(noti);
-
-        // animación entrada
-        setTimeout(() => noti.classList.add("show"), 10);
-
-        // desaparición automática
-        setTimeout(() => {
-            noti.classList.remove("show");
-            setTimeout(() => noti.remove(), 300);
-        }, 3000);
-    }
-
-
-
-
-    fetch("ciudades-del-mundo.json")
-        .then((r) => r.json())
-        .then((data) => {
-        dataCache = data;
-
-        continenteData = dataCache.continents.find(
-            (c) => c.name === continenteSeleccionado
-        );
-
-        if (!continenteData) {
-            titulo.textContent = "Continente no encontrado";
-            subtitulo.textContent = "Revisa el nombre enviado en la URL.";
-            return;
+            return card;
         }
 
-        renderPaises();
-        })
-        .catch((err) => {
-        console.error("Error cargando JSON:", err);
-        titulo.textContent = "Error cargando destinos";
-        subtitulo.textContent =
-            "Asegúrate de abrir el proyecto con Live Server / servidor local.";
-        });
+        function renderPaises() {
+            limpiarGrid();
+            btnVolver.style.display = "none";
+            subtitulo.textContent = "Primero elige un país.";
+
+            continenteData.countries.forEach((country) => {
+                // imagen “representativa” = primera ciudad (si existe)
+                const primeraCiudad = country.cities?.[0];
+                const img = primeraCiudad?.image?.url || "images/mochilachati.png";
+                const alt = primeraCiudad?.image?.alt || country.name;
+
+                const card = crearTarjeta({
+                    img,
+                    alt,
+                    titulo: country.name,
+                    texto: `${country.cities.length} ciudad(es) disponible(s)`,
+                    cta: "Ver ciudades",
+                });
+
+                card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderCiudades(country);
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderCiudades(country) {
+            limpiarGrid();
+            btnVolver.style.display = "inline-block";
+            subtitulo.textContent = `Ciudades en ${country.name}`;
+
+            btnVolver.onclick = (e) => {
+                e.preventDefault();
+                renderPaises();
+            };
+
+            country.cities.forEach((city) => {
+                const card = crearTarjeta({
+                    img: city.image.url,
+                    alt: city.image.alt,
+                    titulo: city.name,
+                    texto: city.description,
+                    cta: "Más detalles",
+                });
+
+                // Si quieres, aquí podrías guardar la ciudad y abrir una página detalle,
+                // pero NO lo hago porque pediste 1 sola página.
+                card.querySelector(".ver-mas-btn").addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    const usuarioLogueado = localStorage.getItem("usuarioLogueado");
+
+                    if (!usuarioLogueado) {
+                        mostrarNotificacion("Debes registrarte o iniciar sesión");
+                        return;
+                    }
+
+                    abrirModalCompra(city);
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        function abrirModalCompra(city) {
+            const modal = document.getElementById("modal-compra");
+
+            // Usuario logueado
+            const usuario = JSON.parse(localStorage.getItem("usuarioLogueado")) || {
+                nombre: "Usuario",
+                foto: "images/mochilachati.png"
+            };
+
+            document.getElementById("compra-foto-usuario").src = usuario.foto;
+            document.getElementById("compra-nombre-usuario").textContent = usuario.nombre;
+
+            document.getElementById("compra-ciudad").textContent = city.name;
+            document.getElementById("compra-imagen-ciudad").src = city.image.url;
+            document.getElementById("compra-imagen-ciudad").alt = city.image.alt;
+            document.getElementById("compra-descripcion").textContent = city.description;
+
+            modal.style.display = "block";
+        }
+
+        const cerrarCompra = document.getElementById("cerrarCompra");
+        if (cerrarCompra) {
+            cerrarCompra.addEventListener("click", () => {
+                document.getElementById("modal-compra").style.display = "none";
+            });
+        }
+
+        const formCompra = document.getElementById("form-compra");
+
+        if (formCompra) {
+            formCompra.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                // Cerramos el modal
+                const modal = document.getElementById("modal-compra");
+                modal.style.display = "none";
+
+                // Mostramos notificación
+                mostrarNotificacion("Reserva confirmada 🎉");
+
+                // (opcional) resetear formulario
+                formCompra.reset();
+            });
+        }
+
+        function mostrarNotificacion(texto) {
+            const noti = document.createElement("div");
+            noti.className = "notificacion-reserva";
+            noti.textContent = texto;
+
+            document.body.appendChild(noti);
+
+            // animación entrada
+            setTimeout(() => noti.classList.add("show"), 10);
+
+            // desaparición automática
+            setTimeout(() => {
+                noti.classList.remove("show");
+                setTimeout(() => noti.remove(), 300);
+            }, 3000);
+        }
+
+
+
+
+        fetch("ciudades-del-mundo.json")
+            .then((r) => r.json())
+            .then((data) => {
+                dataCache = data;
+
+                continenteData = dataCache.continents.find(
+                    (c) => c.name === continenteSeleccionado
+                );
+
+                if (!continenteData) {
+                    titulo.textContent = "Continente no encontrado";
+                    subtitulo.textContent = "Revisa el nombre enviado en la URL.";
+                    return;
+                }
+
+                renderPaises();
+            })
+            .catch((err) => {
+                console.error("Error cargando JSON:", err);
+                titulo.textContent = "Error cargando destinos";
+                subtitulo.textContent =
+                    "Asegúrate de abrir el proyecto con Live Server / servidor local.";
+            });
     })();
 
 
@@ -1468,7 +1485,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     (function () {
 
-        
+
         if (!window.location.pathname.includes("otros_rincones")) return;
 
         const enlaceComunidad = document.querySelector('a[href="comunidad.html"]');
@@ -1479,9 +1496,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!usuarioLogueado) {
                 e.preventDefault();
-                
-                window.location.href = "a.html"; 
-               
+
+                window.location.href = "a.html";
+
             }
         });
 
@@ -1492,12 +1509,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     (function () {
 
-        
+
         if (!window.location.pathname.includes("otros_rincones")) return;
 
         const usuarioLogueado = localStorage.getItem("usuarioLogueado");
 
-        
+
         const botonesProtegidos = document.querySelectorAll(
             'a, button'
         );
@@ -1515,7 +1532,7 @@ document.addEventListener('DOMContentLoaded', function () {
             boton.addEventListener("click", function (e) {
                 if (!localStorage.getItem("usuarioLogueado")) {
                     e.preventDefault();
-                    window.location.href = "a.html"; 
+                    window.location.href = "a.html";
                 }
             });
         });
@@ -1535,7 +1552,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!usuarioLogueado) {
                 e.preventDefault();
-                window.location.href = "a.html"; 
+                window.location.href = "a.html";
             }
         });
 

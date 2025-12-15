@@ -838,19 +838,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const h3 = document.createElement('h3');
                 h3.textContent = fav.titulo || "Viaje favorito";
 
-                const acciones = document.createElement('div');
-                acciones.className = 'acciones';
-
-                const verMas = document.createElement('a');
-                verMas.href = 'a.html';            //redirigimos al nuevo home
-                verMas.className = 'ver-mas-btn';
-                verMas.textContent = 'Más detalles';
-
-                acciones.appendChild(verMas);
-
                 card.appendChild(img);
                 card.appendChild(h3);
-                card.appendChild(acciones);
 
                 contenedorFavoritos.appendChild(card);
             });

@@ -36,7 +36,6 @@
 
             .menu-principal a {
                 display: inline-block;
-                /* O 'flex' si usas flexbox */
                 padding: 15px;
                 text-decoration: none;
                 color: black;
@@ -200,8 +199,6 @@
 
                 text-align: center;
                 color: #ffffff;
-
-
             }
 
 
@@ -209,9 +206,6 @@
 
                 text-align: center;
                 color: #ffffff;
-
-
-
             }
 
 
@@ -399,11 +393,8 @@
                 max-width: 600px;
 
                 margin: 0 auto;
-                /* 🔑 centrado REAL */
                 padding: 20px;
-
                 max-height: none;
-                /* 🔑 importantísimo */
                 overflow: visible;
                 position: relative;
             }
@@ -937,12 +928,6 @@
             }
 
 
-
-
-            /* Pongo todo lo nuevo abajo y luego ya lo ordenamos */
-
-            /* Nota: El boton de ver mas use la misma clase pero no me gusta cmo queda */
-
             .divider {
                 margin: 40px 80px;
                 border: none;
@@ -1094,7 +1079,7 @@
 
             }
 
-            /* Los botones no se alinean perfectamente con el texto lol que mal arreglar */
+        
             .pais-recomendado button {
 
                 border-radius: 8px;
@@ -1143,7 +1128,6 @@
                 border-radius: 8px;
                 position: static !important;
                 width: 70%;
-                /* 🔥 mucho más grandes */
                 max-width: 600px;
                 height: auto;
                 display: block;
@@ -1207,13 +1191,6 @@
             }
 
 
-
-
-
-
-
-
-
             /* GRID PRINCIPAL */
             .contenedor-comunidad {
                 display: grid;
@@ -1225,8 +1202,6 @@
                 padding: 0 20px;
                 box-sizing: border-box;
             }
-
-            /* col-izq-com */
 
             .col-izq-comunidad {
                 position: sticky;
@@ -1508,105 +1483,10 @@
             }
 
 
-
-
-
-
-
-
-
-
-            /*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            */
+            /* MEDIA QUERIES */
 
             @media (max-width: 560px) {
-
-                /* Corregir margen desequilibrado en comunidad.html y otras páginas */
+ */
                 body {
                     padding-left: 12px;
                     padding-right: 12px;
@@ -1652,7 +1532,6 @@
             @media (max-width: 992px) {
 
                 /* --- INICIO DE LA LÓGICA DEL HEADER --- */
-                /* Layout "móvil" del header pero SIN hamburguesa todavía */
 
                 body {
                     padding-right: 12px;
@@ -1688,7 +1567,6 @@
                     margin-bottom: 4px;
                 }
 
-                /* El menú de texto sigue visible en 992px - solo se oculta en 480px */
                 .menu-principal {
                     display: flex;
                     gap: 0.5rem;
@@ -1709,7 +1587,6 @@
                     gap: 10px;
                 }
 
-                /* El hamburguesa sigue oculto en 992px - solo se muestra en 480px */
                 .icono-hamburger {
                     display: none;
                 }
@@ -1719,10 +1596,6 @@
                     white-space: normal;
                 }
 
-                /* --- FIN DE LA LÓGICA DEL HEADER --- */
-
-
-                /* --- TUS REGLAS DE LAYOUT ORIGINALES PARA 992px --- */
                 .compra-experiencia {
                     grid-template-columns: 100%;
                     width: 100%;
@@ -1836,7 +1709,6 @@
                 /* PERFIL */
                 .col-izq-comunidad {
                     position: static;
-                    /* quitamos sticky */
                     width: 100%;
                 }
 
@@ -1961,8 +1833,7 @@
             @media (max-width: 480px) {
 
                 /* --- INICIO DE LA LÓGICA DEL MENÚ HAMBURGUESA --- */
-                /* Aquí activamos el menú hamburguesa solo en pantallas de 480px o menores */
-
+        
                 header {
                     position: relative;
                 }
@@ -2021,7 +1892,6 @@
                     transition: opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s;
                 }
 
-                /* La magia que muestra el menú cuando se hace click con animación */
                 #menu-toggle:checked~.menu-principal {
                     display: flex;
                     max-height: 500px;
@@ -2035,11 +1905,6 @@
                     opacity: 1;
                     transform: translateY(0);
                 }
-
-                /* --- FIN DE LA LÓGICA DEL MENÚ HAMBURGUESA --- */
-
-                /* El layout del HEADER ya está heredado de 992px. */
-                /* Aquí solo van los AJUSTES FINOS para pantallas pequeñas. */
 
                 /* 3. Ajustamos el tamaño del logo y select para que quepan */
 
@@ -2210,7 +2075,7 @@
                     margin: 0 auto;
                 }
 
-                /* --- TUS REGLAS DE LAYOUT ORIGINALES PARA 480px --- */
+                /* --- REGLAS DE LAYOUT ORIGINALES PARA 480px --- */
 
                 /* Main */
                 .banner {
@@ -2279,7 +2144,6 @@
                 }
 
                 .compra-experiencia {
-                    /* Estas reglas ya están en 992px, pero se pueden refinar */
                     font-size: 0.9em;
                 }
 

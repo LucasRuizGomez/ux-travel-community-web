@@ -88,8 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     //Para poder leer los paramétros
-
-
     const botonBuscar = document.querySelector(".buscar");
 
     const camposBusqueda = [
@@ -323,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return; // Detenemos la ejecución
             }
 
-            // Si la validación es correcta... ---
+            // Si la validación es correcta...
             const nuevoConsejo = {
                 titulo: titulo,
                 descripcion: descripcion

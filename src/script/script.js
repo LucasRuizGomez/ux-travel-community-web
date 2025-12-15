@@ -994,6 +994,8 @@ document.addEventListener('DOMContentLoaded', function () {
             login_remember: "Recordar credenciales",
             login_btn: "Iniciar sesión",
             register_btn: "Registro",
+            btn_view_profile: "Ver perfil",
+            btn_logout: "Cerrar sesión",
 
             top_destinations: "Top destinos mochileros",
             quick_tips: "Consejos rápidos",
@@ -1082,6 +1084,8 @@ document.addEventListener('DOMContentLoaded', function () {
             login_remember: "Remember credentials",
             login_btn: "Log in",
             register_btn: "Register",
+            btn_view_profile: "View profile",
+            btn_logout: "Log out",
 
             top_destinations: "Top backpacker destinations",
             quick_tips: "Quick tips",
@@ -1169,6 +1173,8 @@ document.addEventListener('DOMContentLoaded', function () {
             login_remember: "Se souvenir des identifiants",
             login_btn: "Se connecter",
             register_btn: "S’inscrire",
+            btn_view_profile: "Voir le profil",
+            btn_logout: "Se déconnecter",
 
             top_destinations: "Destinations préférées des backpackers",
             quick_tips: "Conseils rapides",

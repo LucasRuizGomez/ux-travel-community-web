@@ -1555,6 +1555,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })();
 
 
+    document.getElementById("compra-nombre-usuario").textContent = usuario.nombre;
 
 
 

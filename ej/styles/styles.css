@@ -1108,60 +1108,27 @@
             }
 
 
-
-            .worldmap {
-                position: static;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 60px;
-                padding: 60px 0;
-                max-width: 900px;
-                margin: 0 auto;
-            }
-
-            /* Continentes */
-            .continent {
-                border: 3px solid #285226;
-                padding: 24px;
-                background: #ffffff;
-                border-radius: 8px;
-                position: static !important;
-                width: 70%;
-                max-width: 600px;
-                height: auto;
-                display: block;
-                margin: 0 auto;
-                /* centra el elemento */
-                cursor: pointer;
-                transition: transform 0.2s ease, opacity 0.2s ease;
-            }
-
-            /* Corrige el desplazamiento visual de SVG */
-            .continent {
-                transform-origin: center center;
-            }
-
-            /* Hover limpio */
-            .continent:hover {
-                opacity: 0.75;
-                transform: scale(1.03);
-                border-color: #3b7a3b;
-                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            }
-
-            /* Anulamos posiciones del mapa antiguo */
-            #na,
-            #sa,
-            #eu,
-            #af,
-            #as,
-            #oc {
-                left: auto !important;
-                top: auto !important;
-            }
-
-
+            .map-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 60px auto;
+            width: 90%;
+            max-width: 1000px;
+            border: 2px solid #ccc;
+            background-color: #fff; /* Color de fondo si la imagen falla */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+            .hitbox-layer {
+              opacity: 0; 
+        }
+        
+        .hitbox {
+            fill: red; 
+            cursor: pointer;
+            pointer-events: all; 
+        }
 
             .banner-paises {
                 position: relative;

@@ -130,15 +130,36 @@
         </section>
 
 
-        <div class="worldmap">
-            <img src="images/north_america.svg" class="continent" id="na" onclick="pick('América del Norte')" alt="America Del Norte">
-            <img src="images/south_america.svg" class="continent" id="sa" onclick="pick('América del Sur')" alt="Sudamerica">
-            <img src="images/europe.svg" class="continent" id="eu" onclick="pick('Europa')" alt="Europa">
-            <img src="images/africa.svg" class="continent" id="af" onclick="pick('África')" alt="Africa">
-            <img src="images/asia.svg" class="continent" id="as" onclick="pick('Asia')" alt="Asia">
-            <img src="images/oceania.svg" class="continent" id="oc" onclick="pick('Oceanía')" alt="Oceania">
-        </div>
+        <div class="map-wrapper">
+        <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+            
+            <image href="https://upload.wikimedia.org/wikipedia/commons/c/c0/Location_of_Continents.svg" 
+                   x="0" y="25" height="500" width="1000" preserveAspectRatio="none"/>
 
+
+            <g class="hitbox-layer">
+                 <path id="na" class="hitbox" onclick="pick('América del Norte')" alt="America Del Norte""
+                      d="M 150,50 L 400,50 L 350,200 L 250,280 L 100,200 L 50,100 Z" />
+
+                <path id="sa" class="hitbox" onclick="pick('América del Sur')" alt="Sudamerica"
+                      d="M 250,280 L 380,280 L 400,400 L 320,480 L 280,480 Z" />
+
+                <path id="eu" class="hitbox" onclick="pick('Europa')" alt="Europa"
+
+                      d="M 420,60 L 550,60 L 580,150 L 500,160 L 450,140 Z" />
+
+                <path id="af" class="hitbox" onclick="pick('África')" alt="Africa"
+                      d="M 430,160 L 600,160 L 620,300 L 550,400 L 480,300 Z" />
+
+                <path id="as" class="hitbox" onclick="pick('Asia')" alt="Asia"
+                      d="M 550,60 L 850,60 L 900,150 L 800,250 L 600,200 L 580,150 Z" />
+
+                <path id="oc" class="hitbox" onclick="pick('Oceanía')" alt="Oceania"
+                      d="M 750,300 L 900,300 L 920,420 L 780,420 Z" />
+            </g>
+
+        </svg>
+    </div>
                 
 
 

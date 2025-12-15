@@ -14,7 +14,7 @@
             <div class="nombre-sitio">Mochileros por el mundo</div>
             <input type="checkbox" id="menu-toggle">
     
-            <label for="menu-toggle" class="icono-hamburger" aria-label="Abrir menú de navegación">
+            <label for="menu-toggle" class="icono-hamburger">
                 <span class="raya"></span>
                 <span class="raya"></span>
                 <span class="raya"></span>
@@ -68,27 +68,32 @@
 
                 <div class="field">
                     <label>Origen</label>
+                    <label for="resumen-origen" class="sr-only">Origen</label>
                     <input type="text" id="resumen-origen" readonly>
                 </div>
 
                 <div class="field">
                     <label>Destino</label>
+                    <label for="resumen-destino" class="sr-only">Destino</label>
                     <input type="text" id="resumen-destino" readonly>
                 </div>
 
                 <div class="row">
                     <div class="field">
                         <label>Fecha de ida</label>
+                        <label for="resumen-ida" class="sr-only">Fecha de ida</label>
                         <input type="text" id="resumen-ida" readonly>
                     </div>
 
                     <div class="field">
+                        <label for="resumen-vuelta" class="sr-only">Fecha de vuelta</label>
                         <label>Fecha de vuelta</label>
                         <input type="text" id="resumen-vuelta" readonly>
                     </div>
                 </div>
 
                 <div class="field">
+                    <label for="resumen-tipo" class="sr-only">Tipo de viaje</label>
                     <label>Tipo de viaje</label>
                     <input type="text" id="resumen-tipo" readonly>
                 </div>
@@ -146,9 +151,9 @@
 
                     <div class="field">
                         <label>Intolerancias o Alergias</label>
-                        <select class="select" id="tipo-tarjeta" required>
+                        <select class="select" id="intolerancias" required>
                             <option value disabled selected>-- Selecciona una
-                                tarjeta --</option>
+                                opcion --</option>
                             <option value="visa">Lactosa</option>
                             <option value="mastercard">Gluten</option>
                             <option value="amex">Pescado</option>
@@ -157,7 +162,7 @@
 
                     <div class="field">
                         <label>Mascota</label>
-                        <select class="select" id="tipo-tarjeta" required>
+                        <select class="select" id="mascota" required>
                             <option value disabled selected>-- Selecciona una
                                 opcion --</option>
                             <option value="visa">Ninguna</option>
@@ -169,6 +174,7 @@
 
                     <div class="row">
                         <div class="field">
+                            <label for="fecha-expiracion" class="sr-only">Fecha de caducidad</label>
                             <label>Fecha de caducidad</label>
                             <input type="month" id="fecha-expiracion"
                                 class="full-width" required>
